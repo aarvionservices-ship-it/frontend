@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --color-green: #1DB954;
+    --color-blue: #5465FF;
+
+    /* Light Mode */
+    --color-background: 245 247 255;
+    /* #F5F7FF */
+    --color-surface: 255 255 255;
+    /* #FFFFFF */
+    --color-text-primary: #050208;
+    --color-text-secondary: #4A4A6A;
+    --color-border: #D2DDFF;
+
+    /* Gradients (Light) */
+    --gradient-hero: linear-gradient(135deg, #D2DDFF 0%, #5465FF 45%, #1DB954 100%);
+    --gradient-surface: linear-gradient(180deg, #F5F7FF 0%, #D2DDFF 100%);
+    --gradient-cta: linear-gradient(90deg, #1DB954 0%, #5465FF 100%);
+  }
+
+  .dark {
+    /* Dark Mode */
+    --color-background: 5 2 8;
+    /* #050208 */
+    --color-surface: 26 27 61;
+    /* #1A1B3D */
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #A0A0B0;
+    --color-border: #2A2B55;
+
+    /* Gradients (Dark) */
+    --gradient-hero: linear-gradient(135deg, #050208 0%, #1A1B3D 45%, #5465FF 75%, #1DB954 100%);
+    --gradient-surface: linear-gradient(180deg, #0C0B1A 0%, #1A1B3D 100%);
+    /* CTA gradient is same for both, but re-declaring for completeness or could fall back to root if identical */
+    --gradient-cta: linear-gradient(90deg, #1DB954 0%, #5465FF 100%);
+    --gradient-glow: radial-gradient(at top right, rgba(29, 185, 84, 0.28) 0%, transparent 60%);
+  }
+
+  body {
+    @apply bg-background text-text font-sans antialiased;
+    background-color: rgb(var(--color-background));
+    color: var(--color-text-primary);
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Example usage of new tokens - ideally these would be updated in the components themselves or these classes mapped to new tokens */
+  .glass {
+    @apply bg-surface/10 backdrop-blur-lg border border-white/10 shadow-lg;
+  }
+
+  .glass-card {
+    @apply bg-surface/5 backdrop-blur-md border border-white/5 rounded-2xl shadow-xl;
+  }
+
+  .btn-primary {
+    @apply text-white px-6 py-3 rounded-full font-semibold transition-all duration-200 ease-neon;
+    background-image: var(--gradient-cta);
+    box-shadow: 0 8px 24px rgba(84, 101, 255, 0.25);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 12px 32px rgba(84, 101, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .section-padding {
+    @apply py-20;
+  }
+}
