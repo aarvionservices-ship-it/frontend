@@ -39,7 +39,7 @@ const TextReveal: React.FC<TextRevealProps> = ({
             filter: 'blur(0px)',
             transition: {
                 duration: 0.6,
-                ease: [0.2, 0.65, 0.3, 0.9],
+                ease: [0.2, 0.65, 0.3, 0.9] as const,
             },
         },
     };
