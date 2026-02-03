@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Code, FileText, TrendingUp, Headphones, GraduationCap } from 'lucide-react';
-import { motion } from 'framer-motion';
+import StaggerContainer, { StaggerItem } from '../common/animations/StaggerContainer';
+import ScaleHover from '../common/animations/ScaleHover';
 
 const services = [
     {
@@ -36,32 +36,29 @@ const ServicesGrid: React.FC = () => {
         <section className="section-padding bg-surface">
             <div className="container-custom">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Expertise</h2>
-                    <p className="text-muted text-lg">
+                    <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Our Expertise</h2>
+                    <p className="text-text-muted text-lg">
                         Comprehensive business solutions tailored to meet your unique operational challenges.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" staggerDelay={0.15}>
                     {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="p-8 rounded-2xl bg-background border border-white/5 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
-                        >
-                            <div className="bg-surface w-14 h-14 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
-                                {service.icon}
-                            </div>
-                            <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                            <p className="text-muted leading-relaxed">
-                                {service.description}
-                            </p>
-                        </motion.div>
+                        <StaggerItem key={index} className="h-full">
+                            <ScaleHover className="h-full">
+                                <div className="p-8 rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 group h-full flex flex-col">
+                                    <div className="bg-surface w-14 h-14 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+                                        {service.icon}
+                                    </div>
+                                    <h3 className="text-xl font-semibold text-text mb-3">{service.title}</h3>
+                                    <p className="text-text-muted leading-relaxed flex-grow">
+                                        {service.description}
+                                    </p>
+                                </div>
+                            </ScaleHover>
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerContainer>
             </div>
         </section>
     );

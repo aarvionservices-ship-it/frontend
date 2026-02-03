@@ -15,19 +15,19 @@ const TermsOfService: React.FC = () => {
                 <section className="bg-surface py-20 relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[80px]" />
                     <div className="container-custom relative z-10 text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Terms of Service</h1>
-                        <p className="text-xl text-muted max-w-2xl mx-auto">
+                        <h1 className="text-4xl md:text-5xl font-bold text-text mb-6">Terms of Service</h1>
+                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
                             Please read these terms and conditions carefully before using appropriate services.
                         </p>
-                        <p className="text-sm text-gray-500 mt-4">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                        <p className="text-sm text-text-muted mt-4">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
                     </div>
                 </section>
 
                 <section className="section-padding bg-background">
                     <div className="container-custom max-w-4xl">
-                        <div className="prose prose-invert prose-lg max-w-none text-gray-300 space-y-8">
+                        <div className="prose prose-invert prose-lg max-w-none text-text-muted space-y-8">
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                                <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
                                     <FileText className="text-primary mr-3" size={24} /> 1. Agreement to Terms
                                 </h3>
                                 <p>
@@ -36,7 +36,7 @@ const TermsOfService: React.FC = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                                <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
                                     <Gavel className="text-primary mr-3" size={24} /> 2. Intellectual Property Rights
                                 </h3>
                                 <p>
@@ -45,14 +45,14 @@ const TermsOfService: React.FC = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4">3. User Representations</h3>
+                                <h3 className="text-2xl font-bold text-text mb-4">3. User Representations</h3>
                                 <p>
                                     By using the Site, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these Terms of Service.
                                 </p>
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                                <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
                                     <AlertCircle className="text-primary mr-3" size={24} /> 4. Limitations of Liability
                                 </h3>
                                 <p>
@@ -61,14 +61,14 @@ const TermsOfService: React.FC = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4">5. Governing Law</h3>
+                                <h3 className="text-2xl font-bold text-text mb-4">5. Governing Law</h3>
                                 <p>
                                     These Terms shall be governed by and defined following the laws of India. Aarvion Services India Pvt. Ltd. and yourself irrevocably consent that the courts of Hyderabad, India shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.
                                 </p>
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4">6. Contact Us</h3>
+                                <h3 className="text-2xl font-bold text-text mb-4">6. Contact Us</h3>
                                 <p>
                                     In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at: <a href="mailto:info@aarvionservices.com" className="text-primary hover:underline">info@aarvionservices.com</a>
                                 </p>

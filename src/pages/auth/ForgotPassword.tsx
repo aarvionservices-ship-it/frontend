@@ -46,12 +46,12 @@ const ForgotPassword = () => {
                 <title>Forgot Password | Aarvion Services</title>
             </Helmet>
             <main className="pt-20 min-h-screen flex items-center justify-center bg-surface">
-                <div className="w-full max-w-md p-8 bg-background rounded-2xl border border-white/10 shadow-xl">
-                    <Link to="/login" className="flex items-center text-gray-400 hover:text-white mb-6">
+                <div className="w-full max-w-md p-8 bg-background rounded-2xl border border-border shadow-xl">
+                    <Link to="/login" className="flex items-center text-text-muted hover:text-text mb-6">
                         <ArrowLeft size={16} className="mr-2" /> Back to Login
                     </Link>
-                    <h1 className="text-3xl font-bold text-white mb-2 text-center">Reset Password</h1>
-                    <p className="text-gray-400 text-center mb-6">Enter your email to receive a 6-digit OTP.</p>
+                    <h1 className="text-3xl font-bold text-text mb-2 text-center">Reset Password</h1>
+                    <p className="text-text-muted text-center mb-6">Enter your email to receive a 6-digit OTP.</p>
 
                     {message && (
                         <div className="bg-green-500/10 border border-green-500 text-green-500 p-3 rounded mb-6 text-sm">
@@ -67,13 +67,13 @@ const ForgotPassword = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                            <label className="block text-sm font-medium text-text-muted mb-2">Email Address</label>
                             <div className="relative">
-                                <Mail className="absolute left-3 top-3 text-gray-500" size={20} />
+                                <Mail className="absolute left-3 top-3 text-text-muted" size={20} />
                                 <input
                                     {...register('email', { required: 'Email is required' })}
                                     type="email"
-                                    className="w-full bg-surface border border-white/10 rounded-lg pl-10 pr-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                    className="w-full bg-surface border border-border rounded-lg pl-10 pr-4 py-3 text-text focus:outline-none focus:border-primary transition-colors"
                                     placeholder="Enter your email"
                                 />
                             </div>

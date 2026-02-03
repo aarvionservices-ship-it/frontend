@@ -52,8 +52,8 @@ const Login = () => {
                 <title>Login | Aarvion Services</title>
             </Helmet>
             <main className="pt-20 min-h-screen flex items-center justify-center bg-surface">
-                <div className="w-full max-w-md p-8 bg-background rounded-2xl border border-white/10 shadow-xl">
-                    <h1 className="text-3xl font-bold text-white mb-6 text-center">Welcome Back</h1>
+                <div className="w-full max-w-md p-8 bg-background rounded-2xl border border-border shadow-xl">
+                    <h1 className="text-3xl font-bold text-text mb-6 text-center">Welcome Back</h1>
 
                     {loginError && (
                         <div className="bg-red-500/10 border border-red-500 text-red-500 p-3 rounded mb-6 text-sm">
@@ -63,13 +63,13 @@ const Login = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                            <label className="block text-sm font-medium text-text-muted mb-2">Email Address</label>
                             <div className="relative">
-                                <Mail className="absolute left-3 top-3 text-gray-500" size={20} />
+                                <Mail className="absolute left-3 top-3 text-text-muted" size={20} />
                                 <input
                                     {...register('email', { required: 'Email is required' })}
                                     type="email"
-                                    className="w-full bg-surface border border-white/10 rounded-lg pl-10 pr-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                    className="w-full bg-surface border border-border rounded-lg pl-10 pr-4 py-3 text-text focus:outline-none focus:border-primary transition-colors"
                                     placeholder="Enter your email"
                                 />
                             </div>
@@ -78,15 +78,15 @@ const Login = () => {
 
                         <div>
                             <div className="flex justify-between mb-2">
-                                <label className="block text-sm font-medium text-gray-400">Password</label>
+                                <label className="block text-sm font-medium text-text-muted">Password</label>
                                 <Link to="/forgot-password" className="text-sm text-primary hover:underline">Forgot Password?</Link>
                             </div>
                             <div className="relative">
-                                <Lock className="absolute left-3 top-3 text-gray-500" size={20} />
+                                <Lock className="absolute left-3 top-3 text-text-muted" size={20} />
                                 <input
                                     {...register('password', { required: 'Password is required' })}
                                     type="password"
-                                    className="w-full bg-surface border border-white/10 rounded-lg pl-10 pr-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                    className="w-full bg-surface border border-border rounded-lg pl-10 pr-4 py-3 text-text focus:outline-none focus:border-primary transition-colors"
                                     placeholder="Enter your password"
                                 />
                             </div>
@@ -104,8 +104,8 @@ const Login = () => {
                     </form>
 
                     {/* Dev Mode Login Bypass */}
-                    <div className="mt-6 border-t border-white/10 pt-6">
-                        <p className="text-xs text-gray-500 text-center mb-2">Development Mode</p>
+                    <div className="mt-6 border-t border-border pt-6">
+                        <p className="text-xs text-text-muted text-center mb-2">Development Mode</p>
                         <button
                             type="button"
                             onClick={() => {
@@ -118,7 +118,7 @@ const Login = () => {
                                 });
                                 navigate('/admin/dashboard');
                             }}
-                            className="w-full bg-white/5 border border-white/10 text-gray-300 py-2 rounded-lg text-sm hover:bg-white/10 hover:text-white transition-colors"
+                            className="w-full bg-surface border border-border text-text-muted py-2 rounded-lg text-sm hover:bg-border hover:text-text transition-colors"
                         >
                             Login as Super Admin (Test)
                         </button>
@@ -134,7 +134,7 @@ const Login = () => {
                                 });
                                 navigate('/hr/dashboard');
                             }}
-                            className="w-full mt-3 bg-white/5 border border-white/10 text-gray-300 py-2 rounded-lg text-sm hover:bg-white/10 hover:text-white transition-colors"
+                            className="w-full mt-3 bg-surface border border-border text-text-muted py-2 rounded-lg text-sm hover:bg-border hover:text-text transition-colors"
                         >
                             Login as HR (Test)
                         </button>

@@ -15,19 +15,19 @@ const PrivacyPolicy: React.FC = () => {
                 <section className="bg-surface py-20 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[80px]" />
                     <div className="container-custom relative z-10 text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Privacy Policy</h1>
-                        <p className="text-xl text-muted max-w-2xl mx-auto">
+                        <h1 className="text-4xl md:text-5xl font-bold text-text mb-6">Privacy Policy</h1>
+                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
                             We are committed to protecting your personal information and your right to privacy.
                         </p>
-                        <p className="text-sm text-gray-500 mt-4">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                        <p className="text-sm text-text-muted mt-4">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
                     </div>
                 </section>
 
                 <section className="section-padding bg-background">
                     <div className="container-custom max-w-4xl">
-                        <div className="prose prose-invert prose-lg max-w-none text-gray-300 space-y-8">
+                        <div className="prose prose-invert prose-lg max-w-none text-text-muted space-y-8">
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                                <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
                                     <Shield className="text-primary mr-3" size={24} /> 1. Introduction
                                 </h3>
                                 <p>
@@ -36,7 +36,7 @@ const PrivacyPolicy: React.FC = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                                <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
                                     <Eye className="text-primary mr-3" size={24} /> 2. Information We Collect
                                 </h3>
                                 <p>
@@ -51,7 +51,7 @@ const PrivacyPolicy: React.FC = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                                <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
                                     <Lock className="text-primary mr-3" size={24} /> 3. How We Use Your Data
                                 </h3>
                                 <p>
@@ -65,21 +65,21 @@ const PrivacyPolicy: React.FC = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4">4. Data Security</h3>
+                                <h3 className="text-2xl font-bold text-text mb-4">4. Data Security</h3>
                                 <p>
                                     We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
                                 </p>
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4">5. Your Legal Rights</h3>
+                                <h3 className="text-2xl font-bold text-text mb-4">5. Your Legal Rights</h3>
                                 <p>
                                     Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to request access, correction, erasure, restriction, transfer, to object to processing, to portability of data and (where the lawful ground of processing is consent) to withdraw consent.
                                 </p>
                             </div>
 
                             <div>
-                                <h3 className="text-2xl font-bold text-white mb-4">6. Contact Us</h3>
+                                <h3 className="text-2xl font-bold text-text mb-4">6. Contact Us</h3>
                                 <p>
                                     If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:info@aarvionservices.com" className="text-primary hover:underline">info@aarvionservices.com</a>
                                 </p>

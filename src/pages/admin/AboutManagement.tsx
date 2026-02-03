@@ -78,20 +78,20 @@ const AboutManagement = () => {
                 return (
                     <>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Name</label>
-                            <input {...register('name', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Name</label>
+                            <input {...register('name', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Role</label>
-                            <input {...register('role', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Role</label>
+                            <input {...register('role', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Bio</label>
-                            <textarea {...register('bio')} className="w-full bg-background border border-white/10 rounded p-2 text-white h-24"></textarea>
+                            <label className="block text-sm text-text-muted mb-1">Bio</label>
+                            <textarea {...register('bio')} className="w-full bg-background border border-border rounded p-2 text-text h-24"></textarea>
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Image URL</label>
-                            <input {...register('image')} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Image URL</label>
+                            <input {...register('image')} className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                     </>
                 );
@@ -99,16 +99,16 @@ const AboutManagement = () => {
                 return (
                     <>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Title</label>
-                            <input {...register('title', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Title</label>
+                            <input {...register('title', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Description</label>
-                            <textarea {...register('description', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white h-24"></textarea>
+                            <label className="block text-sm text-text-muted mb-1">Description</label>
+                            <textarea {...register('description', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text h-24"></textarea>
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Icon Name (Lucide)</label>
-                            <input {...register('icon')} placeholder="e.g. Heart" className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Icon Name (Lucide)</label>
+                            <input {...register('icon')} placeholder="e.g. Heart" className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                     </>
                 );
@@ -116,16 +116,16 @@ const AboutManagement = () => {
                 return (
                     <>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Year</label>
-                            <input {...register('year', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Year</label>
+                            <input {...register('year', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Title</label>
-                            <input {...register('title', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Title</label>
+                            <input {...register('title', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Description</label>
-                            <textarea {...register('description')} className="w-full bg-background border border-white/10 rounded p-2 text-white h-24"></textarea>
+                            <label className="block text-sm text-text-muted mb-1">Description</label>
+                            <textarea {...register('description')} className="w-full bg-background border border-border rounded p-2 text-text h-24"></textarea>
                         </div>
                     </>
                 );
@@ -133,16 +133,16 @@ const AboutManagement = () => {
                 return (
                     <>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Certification Name</label>
-                            <input {...register('name', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Certification Name</label>
+                            <input {...register('name', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Issuer</label>
-                            <input {...register('issuer', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Issuer</label>
+                            <input {...register('issuer', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Date</label>
-                            <input {...register('date')} placeholder="e.g. 2023" className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Date</label>
+                            <input {...register('date')} placeholder="e.g. 2023" className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
                     </>
                 );
@@ -154,15 +154,15 @@ const AboutManagement = () => {
 
         return (
             <div className="space-y-4">
-                {items.length === 0 && <p className="text-gray-500">No items found.</p>}
+                {items.length === 0 && <p className="text-text-muted">No items found.</p>}
                 {items.map((item: any) => (
-                    <div key={item._id} className="bg-surface p-4 rounded-xl border border-white/10 flex justify-between items-start">
+                    <div key={item._id} className="bg-surface p-4 rounded-xl border border-border flex justify-between items-start">
                         <div>
-                            <h4 className="font-bold text-white">{item.name || item.title || item.year}</h4>
-                            <p className="text-sm text-gray-400">{item.role || item.description || item.issuer}</p>
-                            {item.bio && <p className="text-xs text-gray-500 mt-1 line-clamp-2">{item.bio}</p>}
+                            <h4 className="font-bold text-text">{item.name || item.title || item.year}</h4>
+                            <p className="text-sm text-text-muted">{item.role || item.description || item.issuer}</p>
+                            {item.bio && <p className="text-xs text-text-muted mt-1 line-clamp-2">{item.bio}</p>}
                         </div>
-                        <button onClick={() => handleDelete(item._id, activeTab)} className="text-gray-500 hover:text-red-500 p-2">
+                        <button onClick={() => handleDelete(item._id, activeTab)} className="text-text-muted hover:text-red-500 p-2">
                             <Trash2 size={18} />
                         </button>
                     </div>
@@ -176,9 +176,9 @@ const AboutManagement = () => {
             <Helmet>
                 <title>About Management | Admin</title>
             </Helmet>
-            <h1 className="text-3xl font-bold text-white">About Page Management</h1>
+            <h1 className="text-3xl font-bold text-text">About Page Management</h1>
 
-            <div className="flex flex-wrap gap-2 border-b border-white/10 pb-2">
+            <div className="flex flex-wrap gap-2 border-b border-border pb-2">
                 {[
                     { id: 'team', label: 'Team', icon: User },
                     { id: 'values', label: 'Core Values', icon: Heart },
@@ -188,7 +188,7 @@ const AboutManagement = () => {
                     <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id as SectionType)}
-                        className={`flex items-center px-4 py-2 font-medium transition-colors rounded-t-lg ${activeTab === tab.id ? 'bg-surface text-primary border-t border-x border-white/10' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+                        className={`flex items-center px-4 py-2 font-medium transition-colors rounded-t-lg ${activeTab === tab.id ? 'bg-surface text-primary border-t border-x border-border' : 'text-text-muted hover:text-text hover:bg-white/5'}`}
                     >
                         <tab.icon size={16} className="mr-2" />
                         {tab.label}
@@ -203,8 +203,8 @@ const AboutManagement = () => {
                 </div>
 
                 {/* Create Form */}
-                <div className="bg-surface p-6 rounded-xl border border-white/10 h-fit">
-                    <h3 className="text-xl font-bold text-white mb-4 capitalize">
+                <div className="bg-surface p-6 rounded-xl border border-border h-fit">
+                    <h3 className="text-xl font-bold text-text mb-4 capitalize">
                         Add New {activeTab === 'certs' ? 'Certification' : activeTab === 'values' ? 'Value' : activeTab === 'team' ? 'Member' : 'Event'}
                     </h3>
                     <form onSubmit={handleSubmit(handleCreate)} className="space-y-4">

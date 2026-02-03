@@ -15,8 +15,8 @@ const NotFound: React.FC = () => {
                 <div className="container-custom relative z-10 text-center">
                     <h1 className="text-[150px] md:text-[200px] font-bold text-primary/20 leading-none select-none">404</h1>
                     <div className="relative -mt-16 md:-mt-24">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Page Not Found</h2>
-                        <p className="text-xl text-muted max-w-lg mx-auto mb-8">
+                        <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Page Not Found</h2>
+                        <p className="text-xl text-text-muted max-w-lg mx-auto mb-8">
                             The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
                         </p>
                         <Link to="/" className="btn-primary inline-flex items-center">

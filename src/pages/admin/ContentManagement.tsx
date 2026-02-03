@@ -65,18 +65,18 @@ const ContentManagement = () => {
             <Helmet>
                 <title>Content Management | Admin</title>
             </Helmet>
-            <h1 className="text-3xl font-bold text-white">Content Management</h1>
+            <h1 className="text-3xl font-bold text-text">Content Management</h1>
 
-            <div className="flex space-x-4 border-b border-white/10 pb-2">
+            <div className="flex space-x-4 border-b border-border pb-2">
                 <button
                     onClick={() => setActiveTab('testimonials')}
-                    className={`px-4 py-2 font-medium transition-colors ${activeTab === 'testimonials' ? 'text-primary border-b-2 border-primary' : 'text-gray-400 hover:text-white'}`}
+                    className={`px-4 py-2 font-medium transition-colors ${activeTab === 'testimonials' ? 'text-primary border-b-2 border-primary' : 'text-text-muted hover:text-text'}`}
                 >
                     Testimonials
                 </button>
                 <button
                     onClick={() => setActiveTab('partners')}
-                    className={`px-4 py-2 font-medium transition-colors ${activeTab === 'partners' ? 'text-primary border-b-2 border-primary' : 'text-gray-400 hover:text-white'}`}
+                    className={`px-4 py-2 font-medium transition-colors ${activeTab === 'partners' ? 'text-primary border-b-2 border-primary' : 'text-text-muted hover:text-text'}`}
                 >
                     Trusted Companies
                 </button>
@@ -87,35 +87,35 @@ const ContentManagement = () => {
                 <div className="lg:col-span-2 space-y-4">
                     {activeTab === 'testimonials' ? (
                         testimonials.map((t) => (
-                            <div key={t._id} className="bg-surface p-4 rounded-xl border border-white/10 flex justify-between items-start">
+                            <div key={t._id} className="bg-surface p-4 rounded-xl border border-border flex justify-between items-start">
                                 <div>
                                     <div className="flex items-center mb-1">
-                                        <span className="font-bold text-white mr-2">{t.name}</span>
+                                        <span className="font-bold text-text mr-2">{t.name}</span>
                                         <div className="flex text-yellow-500">
                                             {[...Array(t.rating)].map((_, i) => <Star key={i} size={12} fill="currentColor" />)}
                                         </div>
                                     </div>
-                                    <p className="text-sm text-gray-500 mb-2">{t.role} at {t.company}</p>
-                                    <p className="text-gray-300 text-sm italic">"{t.message}"</p>
+                                    <p className="text-sm text-text-muted mb-2">{t.role} at {t.company}</p>
+                                    <p className="text-text-muted text-sm italic">"{t.message}"</p>
                                 </div>
-                                <button onClick={() => handleDelete(t._id, 'testimonials')} className="text-gray-500 hover:text-red-500">
+                                <button onClick={() => handleDelete(t._id, 'testimonials')} className="text-text-muted hover:text-red-500">
                                     <Trash2 size={18} />
                                 </button>
                             </div>
                         ))
                     ) : (
                         partners.map((p) => (
-                            <div key={p._id} className="bg-surface p-4 rounded-xl border border-white/10 flex justify-between items-center">
+                            <div key={p._id} className="bg-surface p-4 rounded-xl border border-border flex justify-between items-center">
                                 <div className="flex items-center">
                                     <div className="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mr-4 overflow-hidden">
-                                        {p.logo ? <img src={p.logo} alt={p.name} className="w-full h-full object-cover" /> : <span className="text-xs text-gray-500">Logo</span>}
+                                        {p.logo ? <img src={p.logo} alt={p.name} className="w-full h-full object-cover" /> : <span className="text-xs text-text-muted">Logo</span>}
                                     </div>
                                     <div>
-                                        <p className="font-bold text-white">{p.name}</p>
+                                        <p className="font-bold text-text">{p.name}</p>
                                         <a href={p.websiteUrl} target="_blank" rel="noreferrer" className="text-xs text-primary hover:underline">{p.websiteUrl}</a>
                                     </div>
                                 </div>
-                                <button onClick={() => handleDelete(p._id, 'partners')} className="text-gray-500 hover:text-red-500">
+                                <button onClick={() => handleDelete(p._id, 'partners')} className="text-text-muted hover:text-red-500">
                                     <Trash2 size={18} />
                                 </button>
                             </div>
@@ -124,33 +124,33 @@ const ContentManagement = () => {
                 </div>
 
                 {/* Create Form */}
-                <div className="bg-surface p-6 rounded-xl border border-white/10 h-fit">
-                    <h3 className="text-xl font-bold text-white mb-4">
+                <div className="bg-surface p-6 rounded-xl border border-border h-fit">
+                    <h3 className="text-xl font-bold text-text mb-4">
                         Add New {activeTab === 'testimonials' ? 'Testimonial' : 'Partner'}
                     </h3>
                     <form onSubmit={handleSubmit(handleCreate)} className="space-y-4">
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">Name</label>
-                            <input {...register('name', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                            <label className="block text-sm text-text-muted mb-1">Name</label>
+                            <input {...register('name', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                         </div>
 
                         {activeTab === 'testimonials' && (
                             <>
                                 <div>
-                                    <label className="block text-sm text-gray-400 mb-1">Role</label>
-                                    <input {...register('role', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                                    <label className="block text-sm text-text-muted mb-1">Role</label>
+                                    <input {...register('role', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                                 </div>
                                 <div>
-                                    <label className="block text-sm text-gray-400 mb-1">Company</label>
-                                    <input {...register('company')} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                                    <label className="block text-sm text-text-muted mb-1">Company</label>
+                                    <input {...register('company')} className="w-full bg-background border border-border rounded p-2 text-text" />
                                 </div>
                                 <div>
-                                    <label className="block text-sm text-gray-400 mb-1">Message</label>
-                                    <textarea {...register('message', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white h-24"></textarea>
+                                    <label className="block text-sm text-text-muted mb-1">Message</label>
+                                    <textarea {...register('message', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text h-24"></textarea>
                                 </div>
                                 <div>
-                                    <label className="block text-sm text-gray-400 mb-1">Rating</label>
-                                    <select {...register('rating')} className="w-full bg-background border border-white/10 rounded p-2 text-white">
+                                    <label className="block text-sm text-text-muted mb-1">Rating</label>
+                                    <select {...register('rating')} className="w-full bg-background border border-border rounded p-2 text-text">
                                         <option value="5">5 Stars</option>
                                         <option value="4">4 Stars</option>
                                         <option value="3">3 Stars</option>
@@ -162,12 +162,12 @@ const ContentManagement = () => {
                         {activeTab === 'partners' && (
                             <>
                                 <div>
-                                    <label className="block text-sm text-gray-400 mb-1">Logo URL</label>
-                                    <input {...register('logo', { required: true })} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                                    <label className="block text-sm text-text-muted mb-1">Logo URL</label>
+                                    <input {...register('logo', { required: true })} className="w-full bg-background border border-border rounded p-2 text-text" />
                                 </div>
                                 <div>
-                                    <label className="block text-sm text-gray-400 mb-1">Website URL</label>
-                                    <input {...register('websiteUrl')} className="w-full bg-background border border-white/10 rounded p-2 text-white" />
+                                    <label className="block text-sm text-text-muted mb-1">Website URL</label>
+                                    <input {...register('websiteUrl')} className="w-full bg-background border border-border rounded p-2 text-text" />
                                 </div>
                             </>
                         )}

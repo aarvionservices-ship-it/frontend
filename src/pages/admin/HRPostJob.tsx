@@ -38,31 +38,31 @@ const HRPostJob = () => {
             <div className="flex items-center space-x-4">
                 <button
                     onClick={() => navigate(-1)}
-                    className="p-2 hover:bg-white/10 rounded-full text-white transition-colors"
+                    className="p-2 hover:bg-white/10 rounded-full text-text transition-colors"
                 >
                     <ArrowLeft size={24} />
                 </button>
                 <div>
-                    <h1 className="text-3xl font-bold text-white">Post New Job</h1>
-                    <p className="text-gray-400">Create a new job opening.</p>
+                    <h1 className="text-3xl font-bold text-text">Post New Job</h1>
+                    <p className="text-text-muted">Create a new job opening.</p>
                 </div>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-3xl bg-surface p-8 rounded-xl border border-white/10 space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="max-w-3xl bg-surface p-8 rounded-xl border border-border space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Job Title</label>
+                        <label className="block text-sm font-medium text-text-muted mb-2">Job Title</label>
                         <input
                             {...register('title', { required: true })}
-                            className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"
+                            className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary"
                             placeholder="e.g. Senior Software Engineer"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Department</label>
+                        <label className="block text-sm font-medium text-text-muted mb-2">Department</label>
                         <select
                             {...register('department', { required: true })}
-                            className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"
+                            className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary"
                         >
                             <option value="Engineering">Engineering</option>
                             <option value="Design">Design</option>
@@ -76,18 +76,18 @@ const HRPostJob = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Location</label>
+                        <label className="block text-sm font-medium text-text-muted mb-2">Location</label>
                         <input
                             {...register('location', { required: true })}
-                            className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"
+                            className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary"
                             placeholder="e.g. Remote, New York, London"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Type</label>
+                        <label className="block text-sm font-medium text-text-muted mb-2">Type</label>
                         <select
                             {...register('type', { required: true })}
-                            className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"
+                            className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary"
                         >
                             <option value="Full-time">Full-time</option>
                             <option value="Part-time">Part-time</option>
@@ -98,27 +98,27 @@ const HRPostJob = () => {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Description</label>
+                    <label className="block text-sm font-medium text-text-muted mb-2">Description</label>
                     <textarea
                         {...register('description', { required: true })}
                         rows={6}
-                        className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"
+                        className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary"
                         placeholder="Detailed job description..."
                     />
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Requirements (Bullet points)</label>
+                    <label className="block text-sm font-medium text-text-muted mb-2">Requirements (Bullet points)</label>
                     <textarea
                         {...register('requirements')}
                         rows={4}
-                        className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"
+                        className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary"
                         placeholder="- Requirement 1&#10;- Requirement 2"
                     />
-                    <p className="text-xs text-gray-500 mt-1">Separate requirements with new lines.</p>
+                    <p className="text-xs text-text-muted mt-1">Separate requirements with new lines.</p>
                 </div>
 
-                <div className="border-t border-white/10 pt-6 flex justify-end">
+                <div className="border-t border-border pt-6 flex justify-end">
                     <button
                         type="submit"
                         disabled={isSubmitting}

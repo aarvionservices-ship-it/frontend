@@ -64,11 +64,11 @@ const ServiceDetail: React.FC = () => {
                 <section className="bg-surface py-20 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 skewed-bg" />
                     <div className="container-custom relative z-10">
-                        <Link to="/services" className="inline-flex items-center text-muted hover:text-primary mb-6 transition-colors">
+                        <Link to="/services" className="inline-flex items-center text-text-muted hover:text-primary mb-6 transition-colors">
                             <ArrowLeft className="mr-2 w-4 h-4" /> Back to Services
                         </Link>
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{service.title}</h1>
-                        <p className="text-xl text-muted max-w-3xl leading-relaxed">
+                        <h1 className="text-4xl md:text-6xl font-bold text-text mb-6">{service.title}</h1>
+                        <p className="text-xl text-text-muted max-w-3xl leading-relaxed">
                             {service.description}
                         </p>
                     </div>
@@ -78,21 +78,21 @@ const ServiceDetail: React.FC = () => {
                 <section className="section-padding bg-background">
                     <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-16">
                         <div>
-                            <h2 className="text-3xl font-bold text-white mb-6">Key Features</h2>
+                            <h2 className="text-3xl font-bold text-text mb-6">Key Features</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {service.features.map((feature: string, idx: number) => (
                                     <div key={idx} className="flex items-start">
                                         <CheckCircle className="text-primary mr-3 mt-1 flex-shrink-0" size={20} />
-                                        <span className="text-gray-300">{feature}</span>
+                                        <span className="text-text-muted">{feature}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold text-white mb-6">Business Benefits</h2>
+                            <h2 className="text-3xl font-bold text-text mb-6">Business Benefits</h2>
                             <ul className="space-y-4">
                                 {service.benefits.map((benefit: string, idx: number) => (
-                                    <li key={idx} className="bg-surface p-4 rounded-lg border border-white/5 text-gray-300">
+                                    <li key={idx} className="bg-surface p-4 rounded-lg border border-border text-text-muted">
                                         {benefit}
                                     </li>
                                 ))}
@@ -104,14 +104,14 @@ const ServiceDetail: React.FC = () => {
                 {/* Simple Process Visualization */}
                 <section className="py-20 bg-surface">
                     <div className="container-custom">
-                        <h2 className="text-3xl font-bold text-white mb-12 text-center">Development Process</h2>
+                        <h2 className="text-3xl font-bold text-text mb-12 text-center">Development Process</h2>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             {service.process.map((step: string, idx: number) => (
-                                <div key={idx} className="relative p-6 bg-background rounded-xl border border-white/5 text-center">
+                                <div key={idx} className="relative p-6 bg-background rounded-xl border border-border text-center">
                                     <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-black font-bold mx-auto mb-4">
                                         {idx + 1}
                                     </div>
-                                    <h4 className="text-white font-semibold">{step}</h4>
+                                    <h4 className="text-text font-semibold">{step}</h4>
                                 </div>
                             ))}
                         </div>

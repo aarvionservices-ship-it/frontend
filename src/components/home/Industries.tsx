@@ -16,8 +16,8 @@ const Industries: React.FC = () => {
         <section className="py-20 bg-surface">
             <div className="container-custom">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Industries We Serve</h2>
-                    <p className="text-muted max-w-2xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Industries We Serve</h2>
+                    <p className="text-text-muted max-w-2xl mx-auto">
                         Our expertise spans across diverse sectors, delivering tailored solutions that meet specific industry standards and challenges.
                     </p>
                 </div>
@@ -26,12 +26,12 @@ const Industries: React.FC = () => {
                     {industries.map((industry, index) => (
                         <div
                             key={index}
-                            className="group p-6 bg-background rounded-xl border border-white/5 flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all duration-300"
+                            className="group p-6 bg-background rounded-xl border border-border flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all duration-300"
                         >
-                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center text-gray-400 mb-4 group-hover:text-primary group-hover:bg-primary/10 transition-colors">
+                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center text-text-muted mb-4 group-hover:text-primary group-hover:bg-primary/10 transition-colors">
                                 {industry.icon}
                             </div>
-                            <h3 className="text-sm font-semibold text-gray-300 group-hover:text-white transition-colors">{industry.name}</h3>
+                            <h3 className="text-sm font-semibold text-text-muted group-hover:text-text transition-colors">{industry.name}</h3>
                         </div>
                     ))}
                 </div>

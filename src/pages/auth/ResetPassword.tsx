@@ -45,9 +45,9 @@ const ResetPassword = () => {
     if (!email) {
         return (
             <main className="pt-20 min-h-screen flex items-center justify-center bg-surface">
-                <div className="text-white text-center">
+                <div className="text-text text-center">
                     <h1 className="text-2xl font-bold mb-4">Invalid Access</h1>
-                    <p className="text-gray-400 mb-4">Please initiate password reset from the Forgot Password page.</p>
+                    <p className="text-text-muted mb-4">Please initiate password reset from the Forgot Password page.</p>
                     <Link to="/forgot-password" className="text-primary hover:underline">Go to Forgot Password</Link>
                 </div>
             </main>
@@ -60,9 +60,9 @@ const ResetPassword = () => {
                 <title>Reset Password | Aarvion Services</title>
             </Helmet>
             <main className="pt-20 min-h-screen flex items-center justify-center bg-surface">
-                <div className="w-full max-w-md p-8 bg-background rounded-2xl border border-white/10 shadow-xl">
-                    <h1 className="text-3xl font-bold text-white mb-2 text-center">Set New Password</h1>
-                    <p className="text-gray-400 text-center mb-6">Enter OTP sent to {email}</p>
+                <div className="w-full max-w-md p-8 bg-background rounded-2xl border border-border shadow-xl">
+                    <h1 className="text-3xl font-bold text-text mb-2 text-center">Set New Password</h1>
+                    <p className="text-text-muted text-center mb-6">Enter OTP sent to {email}</p>
 
                     {message && (
                         <div className="bg-green-500/10 border border-green-500 text-green-500 p-3 rounded mb-6 text-sm">
@@ -78,13 +78,13 @@ const ResetPassword = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-400 mb-2">OTP Code</label>
+                            <label className="block text-sm font-medium text-text-muted mb-2">OTP Code</label>
                             <div className="relative">
-                                <KeyRound className="absolute left-3 top-3 text-gray-500" size={20} />
+                                <KeyRound className="absolute left-3 top-3 text-text-muted" size={20} />
                                 <input
                                     {...register('otp', { required: 'OTP is required' })}
                                     type="text"
-                                    className="w-full bg-surface border border-white/10 rounded-lg pl-10 pr-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                    className="w-full bg-surface border border-border rounded-lg pl-10 pr-4 py-3 text-text focus:outline-none focus:border-primary transition-colors"
                                     placeholder="6-digit OTP"
                                 />
                             </div>
@@ -92,13 +92,13 @@ const ResetPassword = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-400 mb-2">New Password</label>
+                            <label className="block text-sm font-medium text-text-muted mb-2">New Password</label>
                             <div className="relative">
-                                <Lock className="absolute left-3 top-3 text-gray-500" size={20} />
+                                <Lock className="absolute left-3 top-3 text-text-muted" size={20} />
                                 <input
                                     {...register('newPassword', { required: 'New password is required', minLength: { value: 6, message: 'Minimum 6 characters' } })}
                                     type="password"
-                                    className="w-full bg-surface border border-white/10 rounded-lg pl-10 pr-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                    className="w-full bg-surface border border-border rounded-lg pl-10 pr-4 py-3 text-text focus:outline-none focus:border-primary transition-colors"
                                     placeholder="Enter new password"
                                 />
                             </div>

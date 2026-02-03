@@ -17,8 +17,8 @@ const Careers: React.FC = () => {
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
                     <div className="container-custom relative z-10">
                         <span className="text-primary font-bold uppercase tracking-wider mb-2 block">We Are Hiring</span>
-                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Join Our Team</h1>
-                        <p className="text-xl text-muted max-w-2xl mx-auto">
+                        <h1 className="text-5xl md:text-6xl font-bold text-text mb-6">Join Our Team</h1>
+                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
                             Be part of a culture that empowers you to create, innovate, and grow.
                         </p>
                     </div>

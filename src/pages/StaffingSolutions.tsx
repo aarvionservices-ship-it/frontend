@@ -52,8 +52,8 @@ const StaffingSolutions: React.FC = () => {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]" />
                     <div className="container-custom relative z-10">
                         <span className="text-primary font-bold uppercase tracking-wider mb-2 block">Talent Solutions</span>
-                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Staffing Solutions</h1>
-                        <p className="text-xl text-muted max-w-2xl mx-auto">
+                        <h1 className="text-5xl md:text-6xl font-bold text-text mb-6">Staffing Solutions</h1>
+                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
                             We help you build high-performing teams with our specialized staffing and recruitment services.
                         </p>
                     </div>
@@ -67,13 +67,13 @@ const StaffingSolutions: React.FC = () => {
                                 <Link
                                     to={`/staffing/${solution.slug}`}
                                     key={idx}
-                                    className="block p-8 rounded-2xl bg-surface border border-white/5 hover:border-primary/50 transition-all duration-300 group"
+                                    className="block p-8 rounded-2xl bg-surface border border-border hover:border-primary/50 transition-all duration-300 group"
                                 >
                                     <div className="text-primary mb-6 p-4 bg-background rounded-full w-fit group-hover:scale-110 transition-transform">
                                         {solution.icon}
                                     </div>
-                                    <h3 className="text-2xl font-bold text-white mb-4">{solution.title}</h3>
-                                    <p className="text-muted leading-relaxed">
+                                    <h3 className="text-2xl font-bold text-text mb-4">{solution.title}</h3>
+                                    <p className="text-text-muted leading-relaxed">
                                         {solution.description}
                                     </p>
                                 </Link>

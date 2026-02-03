@@ -24,15 +24,15 @@ const Testimonials: React.FC = () => {
     return (
         <section className="section-padding bg-surface">
             <div className="container-custom">
-                <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-16">Client Stories</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-center text-text mb-16">Client Stories</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {testimonials.map((testim, index) => (
-                        <div key={index} className="bg-background p-8 rounded-2xl relative border border-white/5 hover:border-primary/20 transition-all">
+                        <div key={index} className="bg-background p-8 rounded-2xl relative border border-border hover:border-primary/20 transition-all">
                             <Quote className="text-primary opacity-20 absolute top-6 right-6" size={40} />
-                            <p className="text-gray-300 mb-6 italic relative z-10">"{testim.quote}"</p>
+                            <p className="text-text-muted mb-6 italic relative z-10">"{testim.quote}"</p>
                             <div>
-                                <h4 className="text-white font-semibold">{testim.author}</h4>
-                                <span className="text-sm text-muted">{testim.position}</span>
+                                <h4 className="text-text font-semibold">{testim.author}</h4>
+                                <span className="text-sm text-text-muted">{testim.position}</span>
                             </div>
                         </div>
                     ))}

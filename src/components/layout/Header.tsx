@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '../common/ThemeToggle';
+import ScaleHover from '../common/animations/ScaleHover';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -61,11 +62,13 @@ const Header: React.FC = () => {
         >
             <div className="container-custom flex justify-between items-center">
                 {/* Logo */}
-                <Link to="/" className="text-2xl font-bold tracking-tighter text-text border-2 border-primary px-2 py-1 relative overflow-hidden group">
-                    <span className="absolute inset-0 w-full h-full bg-primary/10 transition-transform transform translate-x-full group-hover:translate-x-0 duration-300"></span>
-                    <span className="relative z-10 text-text group-hover:text-primary transition-colors duration-300">AARVION</span>
-                    <span className="relative z-10 text-primary group-hover:text-text transition-colors duration-300">SERVICES</span>
-                </Link>
+                <ScaleHover>
+                    <Link to="/" className="text-2xl font-bold tracking-tighter text-text border-2 border-primary px-2 py-1 relative overflow-hidden group block">
+                        <span className="absolute inset-0 w-full h-full bg-primary/10 transition-transform transform translate-x-full group-hover:translate-x-0 duration-300"></span>
+                        <span className="relative z-10 text-text group-hover:text-primary transition-colors duration-300">AARVION</span>
+                        <span className="relative z-10 text-primary group-hover:text-text transition-colors duration-300">SERVICES</span>
+                    </Link>
+                </ScaleHover>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-8">
@@ -79,8 +82,8 @@ const Header: React.FC = () => {
                             <Link
                                 to={link.path}
                                 className={`text-sm font-medium transition-colors duration-300 hover:text-primary flex items-center ${location.pathname === link.path
-                                        ? 'text-primary'
-                                        : 'text-text hover:text-text'
+                                    ? 'text-primary'
+                                    : 'text-text hover:text-text'
                                     }`}
                             >
                                 {link.name}
@@ -114,7 +117,9 @@ const Header: React.FC = () => {
                         </div>
                     ))}
                     <div className="border-l border-border h-6 mx-4"></div>
-                    <ThemeToggle />
+                    <ScaleHover>
+                        <ThemeToggle />
+                    </ScaleHover>
                 </nav>
 
                 {/* Mobile Menu Button */}

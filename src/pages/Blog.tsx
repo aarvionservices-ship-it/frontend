@@ -17,8 +17,8 @@ const Blog: React.FC = () => {
                     <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
                     <div className="container-custom relative z-10">
                         <span className="text-primary font-bold uppercase tracking-wider mb-2 block">Our Blog</span>
-                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Latest Insights</h1>
-                        <p className="text-xl text-muted max-w-2xl mx-auto">
+                        <h1 className="text-5xl md:text-6xl font-bold text-text mb-6">Latest Insights</h1>
+                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
                             Expert thoughts on technology, design, and business strategy.
                         </p>
                     </div>

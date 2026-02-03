@@ -39,25 +39,25 @@ const BlogGrid: React.FC = () => {
             <div className="container-custom">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {blogPosts.map((post) => (
-                        <article key={post.id} className="group bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-primary/30 transition-all hover:shadow-xl">
-                            <div className="aspect-video bg-gray-800 relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gray-700 animate-pulse" /> {/* Placeholder Image */}
+                        <article key={post.id} className="group bg-surface rounded-2xl overflow-hidden border border-border hover:border-primary/30 transition-all hover:shadow-xl">
+                            <div className="aspect-video bg-surface relative overflow-hidden">
+                                <div className="absolute inset-0 bg-text/5 animate-pulse" /> {/* Placeholder Image */}
                                 <div className="absolute top-4 left-4 bg-primary text-black text-xs font-bold px-3 py-1 rounded-full uppercase">
                                     {post.category}
                                 </div>
                             </div>
                             <div className="p-6">
-                                <div className="flex items-center text-xs text-muted mb-4 space-x-4">
+                                <div className="flex items-center text-xs text-text-muted mb-4 space-x-4">
                                     <span className="flex items-center"><Calendar size={14} className="mr-1" /> {post.date}</span>
                                     <span className="flex items-center"><User size={14} className="mr-1" /> {post.author}</span>
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                <h3 className="text-xl font-bold text-text mb-3 group-hover:text-primary transition-colors line-clamp-2">
                                     <Link to={`/blog/${post.id}`}>{post.title}</Link>
                                 </h3>
-                                <p className="text-muted text-sm mb-6 line-clamp-3">
+                                <p className="text-text-muted text-sm mb-6 line-clamp-3">
                                     {post.excerpt}
                                 </p>
-                                <Link to={`/blog/${post.id}`} className="inline-flex items-center text-white font-semibold hover:text-primary transition-colors group">
+                                <Link to={`/blog/${post.id}`} className="inline-flex items-center text-text font-semibold hover:text-primary transition-colors group">
                                     Read Article <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>

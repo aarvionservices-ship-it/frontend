@@ -57,11 +57,11 @@
 
   /* Example usage of new tokens - ideally these would be updated in the components themselves or these classes mapped to new tokens */
   .glass {
-    @apply bg-surface/10 backdrop-blur-lg border border-white/10 shadow-lg;
+    @apply bg-surface/10 backdrop-blur-lg border border-border shadow-lg;
   }
 
   .glass-card {
-    @apply bg-surface/5 backdrop-blur-md border border-white/5 rounded-2xl shadow-xl;
+    @apply bg-surface/5 backdrop-blur-md border border-border rounded-2xl shadow-xl;
   }
 
   .btn-primary {
