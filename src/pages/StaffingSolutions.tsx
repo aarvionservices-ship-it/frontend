@@ -38,6 +38,8 @@ const staffingSolutions = [
     }
 ];
 
+import PageHero from '../components/common/PageHero';
+
 const StaffingSolutions: React.FC = () => {
     return (
         <>
@@ -46,18 +48,13 @@ const StaffingSolutions: React.FC = () => {
                 <meta name="description" content="Comprehensive staffing solutions including IT, Professional, Healthcare, and Global Payrolling services." />
             </Helmet>
 
-            <main className="pt-20">
+            <main>
                 {/* Hero */}
-                <section className="bg-surface py-20 text-center relative overflow-hidden">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]" />
-                    <div className="container-custom relative z-10">
-                        <span className="text-primary font-bold uppercase tracking-wider mb-2 block">Talent Solutions</span>
-                        <h1 className="text-5xl md:text-6xl font-bold text-text mb-6">Staffing Solutions</h1>
-                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
-                            We help you build high-performing teams with our specialized staffing and recruitment services.
-                        </p>
-                    </div>
-                </section>
+                <PageHero
+                    title="Staffing Solutions"
+                    description="We help you build high-performing teams with our specialized staffing and recruitment services."
+                    image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1920"
+                />
 
                 {/* Solutions Grid */}
                 <section className="section-padding bg-background">

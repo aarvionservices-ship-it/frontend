@@ -3,6 +3,8 @@ import React from 'react';
 import SEO from '../components/common/SEO';
 import { FileText, Gavel, AlertCircle } from 'lucide-react';
 
+import PageHero from '../components/common/PageHero';
+
 const TermsOfService: React.FC = () => {
     return (
         <>
@@ -11,17 +13,12 @@ const TermsOfService: React.FC = () => {
                 description="Terms of Service for Aarvion Services. Please read these terms carefully before using our services."
             />
 
-            <main className="pt-20">
-                <section className="bg-surface py-20 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[80px]" />
-                    <div className="container-custom relative z-10 text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold text-text mb-6">Terms of Service</h1>
-                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
-                            Please read these terms and conditions carefully before using appropriate services.
-                        </p>
-                        <p className="text-sm text-text-muted mt-4">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-                    </div>
-                </section>
+            <main>
+                <PageHero
+                    title="Terms of Service"
+                    description="Please read these terms and conditions carefully before using appropriate services."
+                    image="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1920"
+                />
 
                 <section className="section-padding bg-background">
                     <div className="container-custom max-w-4xl">

@@ -4,6 +4,8 @@ import SEO from '../components/common/SEO';
 import WhyJoinUs from '../components/careers/WhyJoinUs';
 import Openings from '../components/careers/Openings';
 
+import PageHero from '../components/common/PageHero';
+
 const Careers: React.FC = () => {
     return (
         <>
@@ -12,17 +14,12 @@ const Careers: React.FC = () => {
                 description="Join our team at Aarvion Services and build the future of business operations and support."
             />
 
-            <main className="pt-20">
-                <div className="bg-surface py-20 text-center relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
-                    <div className="container-custom relative z-10">
-                        <span className="text-primary font-bold uppercase tracking-wider mb-2 block">We Are Hiring</span>
-                        <h1 className="text-5xl md:text-6xl font-bold text-text mb-6">Join Our Team</h1>
-                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
-                            Be part of a culture that empowers you to create, innovate, and grow.
-                        </p>
-                    </div>
-                </div>
+            <main>
+                <PageHero
+                    title="Join Our Team"
+                    description="Be part of a culture that empowers you to create, innovate, and grow."
+                    image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1920"
+                />
 
                 <WhyJoinUs />
                 <Openings />

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../../assets/logo.svg';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';

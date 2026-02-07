@@ -3,6 +3,8 @@ import React from 'react';
 import SEO from '../components/common/SEO';
 import { Shield, Lock, Eye } from 'lucide-react';
 
+import PageHero from '../components/common/PageHero';
+
 const PrivacyPolicy: React.FC = () => {
     return (
         <>
@@ -11,17 +13,12 @@ const PrivacyPolicy: React.FC = () => {
                 description="Privacy Policy for Aarvion Services. Learn how we collect, use, and protect your data."
             />
 
-            <main className="pt-20">
-                <section className="bg-surface py-20 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[80px]" />
-                    <div className="container-custom relative z-10 text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold text-text mb-6">Privacy Policy</h1>
-                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
-                            We are committed to protecting your personal information and your right to privacy.
-                        </p>
-                        <p className="text-sm text-text-muted mt-4">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-                    </div>
-                </section>
+            <main>
+                <PageHero
+                    title="Privacy Policy"
+                    description="We are committed to protecting your personal information and your right to privacy."
+                    image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1920"
+                />
 
                 <section className="section-padding bg-background">
                     <div className="container-custom max-w-4xl">

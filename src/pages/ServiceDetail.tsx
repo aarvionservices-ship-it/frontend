@@ -43,9 +43,11 @@ const serviceData: Record<string, any> = {
     }
 };
 
+import PageHero from '../components/common/PageHero';
+
 const ServiceDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
-    // Default to web-development if not found, or handle 404
+    // Default to back-office-support if not found, or handle 404
     const service = serviceData[id || ''] || serviceData['back-office-support'];
 
     useEffect(() => {
@@ -59,20 +61,18 @@ const ServiceDetail: React.FC = () => {
                 <meta name="description" content={service.description} />
             </Helmet>
 
-            <main className="pt-20">
+            <main>
                 {/* Hero */}
-                <section className="bg-surface py-20 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 skewed-bg" />
-                    <div className="container-custom relative z-10">
-                        <Link to="/services" className="inline-flex items-center text-text-muted hover:text-primary mb-6 transition-colors">
-                            <ArrowLeft className="mr-2 w-4 h-4" /> Back to Services
-                        </Link>
-                        <h1 className="text-4xl md:text-6xl font-bold text-text mb-6">{service.title}</h1>
-                        <p className="text-xl text-text-muted max-w-3xl leading-relaxed">
-                            {service.description}
-                        </p>
-                    </div>
-                </section>
+                <PageHero
+                    title={service.title}
+                    description={service.description}
+                    image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920"
+                />
+                <div className="container-custom pt-8">
+                    <Link to="/services" className="inline-flex items-center text-text-muted hover:text-primary mb-6 transition-colors">
+                        <ArrowLeft className="mr-2 w-4 h-4" /> Back to Services
+                    </Link>
+                </div>
 
                 {/* Overview & Features */}
                 <section className="section-padding bg-background">

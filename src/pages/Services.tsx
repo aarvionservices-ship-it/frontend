@@ -42,6 +42,8 @@ const services = [
     }
 ];
 
+import PageHero from '../components/common/PageHero';
+
 const Services: React.FC = () => {
     return (
         <>
@@ -50,18 +52,13 @@ const Services: React.FC = () => {
                 description="Explore our comprehensive range of services including Back Office Support, Financial Services, and IT Outsourcing."
             />
 
-            <main className="pt-20">
+            <main>
                 {/* Hero Section */}
-                <section className="bg-surface py-20 text-center relative overflow-hidden">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]" />
-                    <div className="container-custom relative z-10">
-                        <span className="text-primary font-bold tracking-wider uppercase mb-4 block">What We Do</span>
-                        <h1 className="text-5xl md:text-6xl font-bold text-text mb-6">Our Expertise</h1>
-                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
-                            We combine technology and creativity to deliver solutions that drive real results.
-                        </p>
-                    </div>
-                </section>
+                <PageHero
+                    title="Our Expertise"
+                    description="We combine technology and creativity to deliver solutions that drive real results."
+                    image="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1920"
+                />
 
                 {/* Services List */}
                 <section className="section-padding bg-background">
