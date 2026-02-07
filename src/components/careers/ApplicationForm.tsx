@@ -71,7 +71,7 @@ const ApplicationForm: React.FC = () => {
                 {/* <h2 className="text-3xl font-bold text-text mb-8 text-center">Apply Generic / Specific</h2> Removed as it's now context-dependent or hidden */}
 
                 {submitStatus === 'success' && (
-                    <div className="mb-6 p-4 bg-green-500/10 border border-green-500 rounded-lg flex items-center text-green-500">
+                    <div className="mb-6 p-4 bg-[#BDF300]/10 border border-[#BDF300] rounded-lg flex items-center text-[#BDF300]">
                         <CheckCircle className="mr-2" /> Application submitted successfully!
                     </div>
                 )}

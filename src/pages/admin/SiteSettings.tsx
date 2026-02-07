@@ -55,7 +55,7 @@ const SiteSettings = () => {
             <p className="text-gray-400">Manage global website configurations.</p>
 
             {message && (
-                <div className="bg-green-500/10 border border-green-500 text-green-500 p-3 rounded mb-4">
+                <div className="bg-[#BDF300]/10 border border-[#BDF300] text-[#BDF300] p-3 rounded mb-4">
                     {message}
                 </div>
             )}

@@ -117,7 +117,7 @@ const UserManagement = () => {
                                 <td className="px-6 py-4 capitalize">
                                     <span className={`px-2 py-1 rounded text-xs font-bold ${u.role === 'super-admin' ? 'bg-purple-500/20 text-purple-400' :
                                         u.role === 'admin' ? 'bg-blue-500/20 text-blue-400' :
-                                            'bg-green-500/20 text-green-400'
+                                            'bg-[#BDF300]/20 text-[#BDF300]'
                                         }`}>
                                         {u.role}
                                     </span>

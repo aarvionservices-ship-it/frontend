@@ -7,22 +7,22 @@
 @layer base {
   :root {
     /* Brand Colors */
-    --color-green: #1DB954;
+    --color-green: #BDF300;
     --color-blue: #5465FF;
 
     /* Light Mode */
-    --color-background: 245 247 255;
-    /* #F5F7FF */
+    --color-background: 52 187 245;
+    /* #34BBF5 */
     --color-surface: 255 255 255;
     /* #FFFFFF */
     --color-text-primary: #050208;
-    --color-text-secondary: #4A4A6A;
+    --color-text-secondary: #000000;
     --color-border: #D2DDFF;
 
     /* Gradients (Light) */
-    --gradient-hero: linear-gradient(135deg, #D2DDFF 0%, #5465FF 45%, #1DB954 100%);
+    --gradient-hero: linear-gradient(135deg, #D2DDFF 0%, #5465FF 45%, #BDF300 100%);
     --gradient-surface: linear-gradient(180deg, #F5F7FF 0%, #D2DDFF 100%);
-    --gradient-cta: linear-gradient(90deg, #1DB954 0%, #5465FF 100%);
+    --gradient-cta: linear-gradient(90deg, #BDF300 0%, #34BBF5 100%);
   }
 
   .dark {
@@ -36,11 +36,11 @@
     --color-border: #2A2B55;
 
     /* Gradients (Dark) */
-    --gradient-hero: linear-gradient(135deg, #050208 0%, #1A1B3D 45%, #5465FF 75%, #1DB954 100%);
+    --gradient-hero: linear-gradient(135deg, #050208 0%, #1A1B3D 45%, #5465FF 75%, #BDF300 100%);
     --gradient-surface: linear-gradient(180deg, #0C0B1A 0%, #1A1B3D 100%);
     /* CTA gradient is same for both, but re-declaring for completeness or could fall back to root if identical */
-    --gradient-cta: linear-gradient(90deg, #1DB954 0%, #5465FF 100%);
-    --gradient-glow: radial-gradient(at top right, rgba(29, 185, 84, 0.28) 0%, transparent 60%);
+    --gradient-cta: linear-gradient(90deg, #BDF300 0%, #34BBF5 100%);
+    --gradient-glow: radial-gradient(at top right, rgba(189, 243, 0, 0.28) 0%, transparent 60%);
   }
 
   body {
@@ -67,11 +67,11 @@
   .btn-primary {
     @apply text-white px-6 py-3 rounded-full font-semibold transition-all duration-200 ease-neon;
     background-image: var(--gradient-cta);
-    box-shadow: 0 8px 24px rgba(84, 101, 255, 0.25);
+    box-shadow: 0 8px 24px rgba(189, 243, 0, 0.25);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 12px 32px rgba(84, 101, 255, 0.4);
+    box-shadow: 0 12px 32px rgba(189, 243, 0, 0.4);
     transform: translateY(-1px);
   }
 

@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
                     {/* Brand */}
                     <StaggerItem className="lg:col-span-1">
                         <Link to="/" className="text-2xl font-bold tracking-tighter text-text mb-6 block">
-                            AARVION<span className="text-primary">SERVICES</span>
+                            <img src="/logo2.png" alt="Aarvion Services" className="h-12 w-auto object-contain" />
                         </Link>
                         <p className="text-text-muted mb-6 text-sm leading-relaxed">
                             A diversified service-based company delivering modern, reliable and efficient solutions across multiple domains. Specializing in back-office, financial services, IT support, and more.

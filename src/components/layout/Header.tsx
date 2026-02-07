@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../../assets/logo.svg';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -63,10 +64,8 @@ const Header: React.FC = () => {
             <div className="container-custom flex justify-between items-center">
                 {/* Logo */}
                 <ScaleHover>
-                    <Link to="/" className="text-2xl font-bold tracking-tighter text-text border-2 border-primary px-2 py-1 relative overflow-hidden group block">
-                        <span className="absolute inset-0 w-full h-full bg-primary/10 transition-transform transform translate-x-full group-hover:translate-x-0 duration-300"></span>
-                        <span className="relative z-10 text-text group-hover:text-primary transition-colors duration-300">AARVION</span>
-                        <span className="relative z-10 text-primary group-hover:text-text transition-colors duration-300">SERVICES</span>
+                    <Link to="/" className="block">
+                        <img src="/logo2.png" alt="Aarvion Services" className="h-12 w-auto object-contain" />
                     </Link>
                 </ScaleHover>
 
