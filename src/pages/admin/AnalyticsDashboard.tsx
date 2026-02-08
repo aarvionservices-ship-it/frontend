@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { getAnalyticsEstimate } from '../../services/analyticsService';
-import { Calendar, Users, Activity } from 'lucide-react';
+import { Users, Activity } from 'lucide-react';
 
 const AnalyticsDashboard: React.FC = () => {
     const [data, setData] = useState<any[]>([]);
