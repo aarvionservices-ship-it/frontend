@@ -33,6 +33,7 @@ import Contact from './pages/Contact';
 import Login from './pages/auth/Login';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import ResetPassword from './pages/auth/ResetPassword';
+import Setup from './pages/Setup';
 
 import DashboardLayout from './layouts/DashboardLayout';
 import SuperAdminDashboard from './pages/admin/SuperAdminDashboard';
@@ -44,6 +45,7 @@ import HRDashboard from './pages/admin/HRDashboard';
 import HRJobs from './pages/admin/HRJobs';
 import HRPostJob from './pages/admin/HRPostJob';
 import HRContact from './pages/admin/HRContact';
+import AnalyticsDashboard from './pages/admin/AnalyticsDashboard';
 
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
@@ -60,6 +62,7 @@ function App() {
             <Route element={<DashboardLayout />}>
               <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
               <Route path="/admin/dashboard" element={<SuperAdminDashboard />} />
+              <Route path="/admin/analytics" element={<AnalyticsDashboard />} />
               <Route path="/admin/users" element={<UserManagement />} />
               <Route path="/admin/content" element={<ContentManagement />} />
               <Route path="/admin/about" element={<AboutManagement />} />
@@ -90,6 +93,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/setup" element={<Setup />} />
 
               {/* Legal Routes */}
               <Route path="/privacy" element={<PrivacyPolicy />} />

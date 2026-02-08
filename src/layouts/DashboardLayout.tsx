@@ -28,6 +28,12 @@ const sidebarItems: SidebarItem[] = [
         roles: ['super-admin', 'admin']
     },
     {
+        name: 'Analytics',
+        path: '/admin/analytics',
+        icon: <BarChart3 size={20} />,
+        roles: ['super-admin', 'admin']
+    },
+    {
         name: 'User Management',
         path: '/admin/users',
         icon: <Users size={20} />,
