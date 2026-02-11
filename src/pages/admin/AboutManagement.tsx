@@ -24,10 +24,10 @@ const AboutManagement = () => {
             const token = localStorage.getItem('token');
             const headers = { Authorization: `Bearer ${token}` };
 
-            const resTeam = await fetch('http://localhost:5000/api/cms/team', { headers });
-            const resValues = await fetch('http://localhost:5000/api/cms/values', { headers });
-            const resTimeline = await fetch('http://localhost:5000/api/cms/timeline', { headers });
-            const resCerts = await fetch('http://localhost:5000/api/cms/certs', { headers });
+            const resTeam = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/team`, { headers });
+            const resValues = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/values`, { headers });
+            const resTimeline = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/timeline`, { headers });
+            const resCerts = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/certs`, { headers });
 
             if (resTeam.ok) setTeam(await resTeam.json());
             if (resValues.ok) setValues(await resValues.json());
@@ -41,7 +41,7 @@ const AboutManagement = () => {
     const handleCreate = async (data: any) => {
         try {
             const token = localStorage.getItem('token');
-            const res = await fetch(`http://localhost:5000/api/cms/${activeTab}`, {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/${activeTab}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const AboutManagement = () => {
         if (!window.confirm('Are you sure?')) return;
         try {
             const token = localStorage.getItem('token');
-            await fetch(`http://localhost:5000/api/cms/${type}/${id}`, {
+            await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/${type}/${id}`, {
                 method: 'DELETE',
                 headers: { Authorization: `Bearer ${token}` }
             });

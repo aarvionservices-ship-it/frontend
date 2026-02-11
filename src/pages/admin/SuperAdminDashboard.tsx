@@ -21,15 +21,20 @@ const SuperAdminDashboard = () => {
         const fetchMessages = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await fetch('http://localhost:5000/api/contact', {
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contact`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (res.ok) {
                     const data = await res.json();
-                    setMessages(data);
+                    // Handle both array and object responses
+                    const messagesArray = Array.isArray(data) ? data : (data.contacts || data.data || []);
+                    setMessages(messagesArray);
+                } else {
+                    setMessages([]);
                 }
             } catch (error) {
                 console.error("Failed to fetch messages", error);
+                setMessages([]);
             }
         };
         fetchMessages();

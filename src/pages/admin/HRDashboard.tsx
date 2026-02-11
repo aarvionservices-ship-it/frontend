@@ -11,7 +11,7 @@ const HRDashboard = () => {
         const fetchStats = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await fetch('http://localhost:5000/api/jobs/my-jobs', {
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/my-jobs`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (res.ok) {
@@ -29,38 +29,38 @@ const HRDashboard = () => {
         <div className="space-y-6">
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold text-white">HR Dashboard</h1>
-                    <p className="text-gray-400">Welcome back, {user?.name}.</p>
+                    <h1 className="text-3xl font-bold text-text">HR Dashboard</h1>
+                    <p className="text-text-muted">Welcome back, {user?.name}.</p>
                 </div>
             </div>
 
             {/* Analytics Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-surface p-6 rounded-xl border border-white/10">
+                <div className="bg-surface p-6 rounded-xl border border-border">
                     <div className="flex items-center justify-between mb-4">
                         <Briefcase className="text-primary" size={24} />
-                        <span className="text-2xl font-bold text-white">{stats.jobs}</span>
+                        <span className="text-2xl font-bold text-text">{stats.jobs}</span>
                     </div>
-                    <p className="text-gray-400 text-sm">Active Job Postings</p>
+                    <p className="text-text-muted text-sm">Active Job Postings</p>
                 </div>
-                <div className="bg-surface p-6 rounded-xl border border-white/10">
+                <div className="bg-surface p-6 rounded-xl border border-border">
                     <div className="flex items-center justify-between mb-4">
                         <Users className="text-primary" size={24} />
-                        <span className="text-2xl font-bold text-white">{stats.applications}</span>
+                        <span className="text-2xl font-bold text-text">{stats.applications}</span>
                     </div>
-                    <p className="text-gray-400 text-sm">Total Applications</p>
+                    <p className="text-text-muted text-sm">Total Applications</p>
                 </div>
-                <div className="bg-surface p-6 rounded-xl border border-white/10">
+                <div className="bg-surface p-6 rounded-xl border border-border">
                     <div className="flex items-center justify-between mb-4">
                         <BarChart3 className="text-primary" size={24} />
-                        <span className="text-2xl font-bold text-white">{stats.views}</span>
+                        <span className="text-2xl font-bold text-text">{stats.views}</span>
                     </div>
-                    <p className="text-gray-400 text-sm">Total Views</p>
+                    <p className="text-text-muted text-sm">Total Views</p>
                 </div>
             </div>
 
-            <div className="p-8 text-center border-t border-white/10">
-                <p className="text-gray-500">Select "My Jobs" or "Post New Job" from the sidebar to manage listings.</p>
+            <div className="p-8 text-center border-t border-border">
+                <p className="text-text-muted">Select "My Jobs" or "Post New Job" from the sidebar to manage listings.</p>
             </div>
         </div>
     );

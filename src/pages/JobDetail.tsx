@@ -1,15 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, CheckCircle, MapPin, Clock, Briefcase } from 'lucide-react';
-import { jobs } from '../data/jobs';
 import ApplicationForm from '../components/careers/ApplicationForm';
 
 const JobDetail: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
-    const job = jobs.find(j => j.slug === slug);
+    const [job, setJob] = useState<any>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
-    if (!job) {
+    useEffect(() => {
+        const fetchJob = async () => {
+            try {
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs`);
+                if (!res.ok) throw new Error('Failed to fetch jobs');
+
+                const jobs = await res.json();
+                const foundJob = jobs.find((j: any) => j.slug === slug);
+
+                if (!foundJob) {
+                    setError('Job not found');
+                } else {
+                    setJob(foundJob);
+                }
+            } catch (err) {
+                console.error('Error fetching job:', err);
+                setError('Failed to load job');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchJob();
+    }, [slug]);
+
+    if (loading) {
+        return (
+            <main className="pt-20">
+                <div className="h-screen flex items-center justify-center">
+                    <p className="text-text-muted text-lg">Loading job details...</p>
+                </div>
+            </main>
+        );
+    }
+
+    if (error || !job) {
         return <Navigate to="/careers" replace />;
     }
 
@@ -73,7 +109,7 @@ const JobDetail: React.FC = () => {
                         <div>
                             <h3 className="text-2xl font-bold text-text mb-4">Responsibilities</h3>
                             <ul className="space-y-3">
-                                {job.responsibilities.map((item, idx) => (
+                                {job.responsibilities.map((item: any, idx: number) => (
                                     <li key={idx} className="flex items-start text-text-muted">
                                         <CheckCircle size={20} className="text-primary mr-3 mt-1 flex-shrink-0" />
                                         <span className="leading-relaxed">{item}</span>
@@ -85,7 +121,7 @@ const JobDetail: React.FC = () => {
                         <div>
                             <h3 className="text-2xl font-bold text-text mb-4">Requirements</h3>
                             <ul className="space-y-3">
-                                {job.requirements.map((item, idx) => (
+                                {job.requirements.map((item: any, idx: number) => (
                                     <li key={idx} className="flex items-start text-text-muted">
                                         <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
                                         <span className="leading-relaxed">{item}</span>

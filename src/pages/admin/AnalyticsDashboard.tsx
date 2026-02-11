@@ -44,57 +44,57 @@ const AnalyticsDashboard: React.FC = () => {
     return (
         <div className="p-6 space-y-6">
             <h1 className="text-2xl font-bold flex items-center gap-2">
-                <Activity className="h-6 w-6 text-blue-600" />
+                <Activity className="h-6 w-6 text-primary" />
                 Analytics Dashboard
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <div className="flex items-center justify-between pb-2 mb-2 border-b border-gray-100">
-                        <span className="text-gray-500 text-sm">Active Users (Today)</span>
-                        <Users className="h-4 w-4 text-green-500" />
+                <div className="bg-surface p-6 rounded-lg shadow-sm border border-border">
+                    <div className="flex items-center justify-between pb-2 mb-2 border-b border-border">
+                        <span className="text-text-muted text-sm">Active Users (Today)</span>
+                        <Users className="h-4 w-4 text-primary" />
                     </div>
-                    <div className="text-2xl font-bold">
+                    <div className="text-2xl font-bold text-text">
                         {data.length > 0 ? data[data.length - 1].DAU : '-'}
                     </div>
                 </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                <h3 className="text-lg font-semibold mb-4 text-gray-700">User Activity Trend (Last 7 Days)</h3>
-                <div className="h-[400px]">
+            <div className="bg-surface p-6 rounded-lg shadow-sm border border-border">
+                <h3 className="text-lg font-semibold mb-4 text-text">User Activity Trend (Last 7 Days)</h3>
+                <div style={{ width: '100%', height: '400px' }}>
                     {loading ? (
-                        <div className="h-full flex items-center justify-center text-gray-400">Loading...</div>
+                        <div className="h-full flex items-center justify-center text-text-muted">Loading...</div>
                     ) : (
                         <ResponsiveContainer width="100%" height="100%">
                             <LineChart data={data}>
-                                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
+                                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--color-border)" />
                                 <XAxis
                                     dataKey="name"
-                                    stroke="#6B7280"
+                                    stroke="var(--color-text-secondary)"
                                     fontSize={12}
                                     tickLine={false}
                                     axisLine={false}
                                 />
                                 <YAxis
-                                    stroke="#6B7280"
+                                    stroke="var(--color-text-secondary)"
                                     fontSize={12}
                                     tickLine={false}
                                     axisLine={false}
                                     allowDecimals={false}
                                 />
                                 <Tooltip
-                                    contentStyle={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #E5E7EB', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                                    itemStyle={{ color: '#1F2937' }}
+                                    contentStyle={{ backgroundColor: 'rgb(var(--color-surface))', borderRadius: '8px', border: '1px solid var(--color-border)', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                                    itemStyle={{ color: 'var(--color-text-primary)' }}
                                 />
                                 <Legend />
                                 <Line
                                     type="monotone"
                                     dataKey="DAU"
-                                    stroke="#2563EB"
+                                    stroke="var(--color-blue)"
                                     strokeWidth={3}
-                                    dot={{ fill: '#2563EB', strokeWidth: 2, r: 4, stroke: '#fff' }}
-                                    activeDot={{ r: 6, fill: '#1D4ED8' }}
+                                    dot={{ fill: 'var(--color-blue)', strokeWidth: 2, r: 4, stroke: 'rgb(var(--color-surface))' }}
+                                    activeDot={{ r: 6, fill: 'var(--color-green)' }}
                                 />
                             </LineChart>
                         </ResponsiveContainer>

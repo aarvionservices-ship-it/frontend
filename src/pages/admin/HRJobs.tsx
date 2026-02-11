@@ -10,7 +10,7 @@ const HRJobs = () => {
         const fetchJobs = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await fetch('http://localhost:5000/api/jobs/my-jobs', {
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/my-jobs`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (res.ok) {
@@ -28,7 +28,7 @@ const HRJobs = () => {
         if (!window.confirm('Are you sure you want to delete this job?')) return;
         try {
             const token = localStorage.getItem('token');
-            const res = await fetch(`http://localhost:5000/api/jobs/${id}`, {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs/${id}`, {
                 method: 'DELETE',
                 headers: { Authorization: `Bearer ${token}` }
             });
@@ -44,8 +44,8 @@ const HRJobs = () => {
         <div className="space-y-6">
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold text-white">My Jobs</h1>
-                    <p className="text-gray-400">Manage your job postings.</p>
+                    <h1 className="text-3xl font-bold text-text">My Jobs</h1>
+                    <p className="text-text-muted">Manage your job postings.</p>
                 </div>
                 <button
                     onClick={() => navigate('/hr/jobs/new')}
@@ -56,16 +56,16 @@ const HRJobs = () => {
             </div>
 
             {/* Job Listings Table */}
-            <div className="bg-surface rounded-xl border border-white/10 overflow-hidden">
+            <div className="bg-surface rounded-xl border border-border overflow-hidden">
                 {jobs.length === 0 ? (
-                    <div className="p-10 text-center text-gray-500">
+                    <div className="p-10 text-center text-text-muted">
                         <p>No jobs posted yet.</p>
                         <button onClick={() => navigate('/hr/jobs/new')} className="text-primary hover:underline mt-2">Post your first job</button>
                     </div>
                 ) : (
                     <div className="overflow-x-auto">
-                        <table className="w-full text-left text-gray-400">
-                            <thead className="text-xs uppercase bg-white/5 text-gray-400">
+                        <table className="w-full text-left text-text-muted">
+                            <thead className="text-xs uppercase bg-background text-text-muted">
                                 <tr>
                                     <th className="px-6 py-3">Title</th>
                                     <th className="px-6 py-3">Department</th>
@@ -76,15 +76,15 @@ const HRJobs = () => {
                             </thead>
                             <tbody>
                                 {jobs.map((job) => (
-                                    <tr key={job._id} className="border-b border-white/5 hover:bg-white/5">
-                                        <td className="px-6 py-4 font-medium text-white">{job.title}</td>
+                                    <tr key={job._id} className="border-b border-border hover:bg-surface/50">
+                                        <td className="px-6 py-4 font-medium text-text">{job.title}</td>
                                         <td className="px-6 py-4">{job.department}</td>
                                         <td className="px-6 py-4">{job.location}</td>
                                         <td className="px-6 py-4">{new Date(job.createdAt).toLocaleDateString()}</td>
                                         <td className="px-6 py-4">
                                             <button
                                                 onClick={() => handleDeleteJob(job._id)}
-                                                className="text-gray-400 hover:text-red-500 transition-colors"
+                                                className="text-text-muted hover:text-red-500 transition-colors"
                                                 title="Delete Job"
                                             >
                                                 <Trash2 size={18} />
