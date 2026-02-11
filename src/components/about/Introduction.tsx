@@ -13,13 +13,15 @@ const Introduction: React.FC = () => {
                 >
                     <span className="text-primary font-bold uppercase tracking-wider mb-2 block">Who We Are</span>
                     <h2 className="text-4xl md:text-5xl font-bold text-text mb-6">
-                        Delivering Modern, Reliable and Efficient Solutions
+                        Delivering Reliable IT and Business Solutions That Work
                     </h2>
                     <p className="text-text-muted text-lg mb-6 leading-relaxed">
-                        Aarvion Services India Pvt. Ltd. is a diversified service-based company delivering modern, reliable and efficient solutions across multiple domains. Led by our Founder & CEO Ravi Shankar Mishra and Chief Technology Officer Akshay Verma, we bring extensive expertise in business operations, technology, and customer experience.
+                        Aarvion Services India Pvt. Ltd. is a service-focused organization providing dependable, efficient solutions across technology and business operations. We work closely with companies to simplify processes, strengthen systems, and support day-to-day operations with confidence.
                     </p>
                     <p className="text-text-muted text-lg mb-6 leading-relaxed">
-                        Registered in Financial District, Hyderabad, Telangana, we work with many clients and partners across India. We specialize in professional back-office support, financial services, IT support & outsourcing, customer support operations, and university admission help-centres.
+                        The company is led by Ravi Shankar Mishra, Founder & CEO, and Akshay Verma, CTO. Together, they bring strong experience in business operations, IT services, and customer support, ensuring every solution is practical, scalable, and aligned with real business needs.
+
+                        Registered in the Financial District of Hyderabad, Telangana, we work with clients and partners across India. Our core services include IT support and outsourcing, back-office operations, financial and accounting services, customer support operations, and university admission help-centre solutions. Across all areas, our focus remains on reliability, clarity, and long-term value.
                     </p>
                 </motion.div>
                 <div className="relative">

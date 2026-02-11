@@ -22,13 +22,13 @@ const AboutPreview: React.FC = () => {
                 <div className="order-1 lg:order-2">
                     <span className="text-primary font-semibold tracking-wide uppercase mb-2 block">Who We Are</span>
                     <h2 className="text-3xl md:text-4xl font-bold text-text mb-6">
-                        Driving Digital Transformation with Passion & Precision
+                        Driving Digital Transformation Through Smart IT Solutions
                     </h2>
                     <p className="text-text-muted text-lg mb-6 leading-relaxed">
-                        Aarvion Services India Pvt. Ltd. is a diversified service-based company delivering modern, reliable and efficient solutions. Led by Founder & CEO Ravi Shankar Mishra and CTO Akshay Verma.
+                        Aarvion Services India Pvt. Ltd. is a diversified, service-based organization helping businesses adapt, streamline, and grow through reliable technology and operational support. We focus on practical, results-driven solutions that solve everyday business and IT challenges.
                     </p>
                     <p className="text-text-muted text-lg mb-8 leading-relaxed">
-                        We specialize in professional back-office support, financial services, IT support & outsourcing, customer support operations, and university admission help-centres.
+                        The company is led by Ravi Shankar Mishra, Founder & CEO, and Akshay Verma, CTO, combining business strategy with strong technical leadership to deliver dependable outcomes for our clients.
                     </p>
                     <Link to="/about" className="inline-flex items-center text-primary font-semibold hover:text-white transition-colors group">
                         More About Us <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -5,6 +5,14 @@ import { Link } from 'react-router-dom';
 import CTA from '../components/home/CTA';
 
 const services = [
+
+    {
+        id: 'it-support-outsourcing',
+        icon: <Code size={40} />,
+        title: 'IT Support & Outsourcing',
+        description: 'Managed IT services, technical support, helpdesk outsourcing, and remote infrastructure management to keep your business running smoothly.',
+        features: ['Technical Support', 'Helpdesk Outsourcing', 'Infrastructure Management']
+    },
     {
         id: 'back-office-support',
         icon: <FileText size={40} />,
@@ -32,13 +40,6 @@ const services = [
         title: 'Admission Help Centre',
         description: 'End-to-end student admission support for universities including application processing, counselling and follow-ups.',
         features: ['Application Processing', 'Counselling', 'University Liaison']
-    },
-    {
-        id: 'it-support-outsourcing',
-        icon: <Code size={40} />,
-        title: 'IT Support & Outsourcing',
-        description: 'Managed IT services, technical support, helpdesk outsourcing, and remote infrastructure management to keep your business running smoothly.',
-        features: ['Technical Support', 'Helpdesk Outsourcing', 'Infrastructure Management']
     }
 ];
 
