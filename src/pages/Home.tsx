@@ -4,8 +4,6 @@ import SEO from '../components/common/SEO';
 import Hero from '../components/home/Hero';
 import ServicesGrid from '../components/home/ServicesGrid';
 import AboutPreview from '../components/home/AboutPreview';
-import Testimonials from '../components/home/Testimonials';
-import Clients from '../components/home/Clients';
 import CTA from '../components/home/CTA';
 
 const Home: React.FC = () => {

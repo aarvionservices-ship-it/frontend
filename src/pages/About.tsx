@@ -4,7 +4,6 @@ import SEO from '../components/common/SEO';
 import Introduction from '../components/about/Introduction';
 import MissionVision from '../components/about/MissionVision';
 import CoreValues from '../components/about/CoreValues';
-import Testimonials from '../components/home/Testimonials';
 import CTA from '../components/home/CTA';
 
 import PageHero from '../components/common/PageHero';
