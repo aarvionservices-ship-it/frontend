@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { ArrowRight, Grid, List } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { jobs } from '../../data/jobs';
 
 const Openings: React.FC = () => {
+    const [jobs, setJobs] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
     const [visibleCount, setVisibleCount] = useState(6);
     const [filters, setFilters] = useState({
@@ -12,7 +13,27 @@ const Openings: React.FC = () => {
         workMode: 'all'
     });
 
-    const getRelativeTime = (date: Date) => {
+    useEffect(() => {
+        const fetchJobs = async () => {
+            try {
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/jobs`);
+                if (!res.ok) throw new Error('Failed to fetch jobs');
+
+                const data = await res.json();
+                setJobs(Array.isArray(data) ? data : []);
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+                setJobs([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchJobs();
+    }, []);
+
+    const getRelativeTime = (dateInput: Date | string) => {
+        const date = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
         const now = new Date();
         const diffTime = Math.abs(now.getTime() - date.getTime());
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -35,23 +56,43 @@ const Openings: React.FC = () => {
     };
 
     // Get unique values for filters
-    const departments = ['all', ...Array.from(new Set(jobs.map(job => job.department)))];
-    const types = ['all', ...Array.from(new Set(jobs.map(job => job.type)))];
-    const workModes = ['all', ...Array.from(new Set(jobs.map(job => job.WorkMode)))];
+    const departments = ['all', ...Array.from(new Set(jobs.map((job: any) => job.department)))];
+    const types = ['all', ...Array.from(new Set(jobs.map((job: any) => job.type)))];
+    const workModes = ['all', ...Array.from(new Set(jobs.map((job: any) => job.WorkMode)))];
 
     // Filter jobs
     const filteredJobs = useMemo(() => {
-        return jobs.filter(job => {
+        return jobs.filter((job: any) => {
             if (filters.department !== 'all' && job.department !== filters.department) return false;
             if (filters.type !== 'all' && job.type !== filters.type) return false;
             if (filters.workMode !== 'all' && job.WorkMode !== filters.workMode) return false;
             return true;
         });
-    }, [filters]);
+    }, [filters, jobs]);
 
     // Visible jobs based on pagination
     const visibleJobs = filteredJobs.slice(0, visibleCount);
     const hasMore = visibleCount < filteredJobs.length;
+
+    if (loading) {
+        return (
+            <section className="section-padding bg-transparent relative z-10">
+                <div className="container-custom text-center">
+                    <p className="text-text-muted text-lg">Loading job openings...</p>
+                </div>
+            </section>
+        );
+    }
+
+    if (jobs.length === 0) {
+        return (
+            <section className="section-padding bg-transparent relative z-10">
+                <div className="container-custom text-center">
+                    <p className="text-text-muted text-lg">No job openings available at the moment.</p>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section className="section-padding bg-transparent relative z-10">
@@ -122,7 +163,7 @@ const Openings: React.FC = () => {
                 }>
                     {visibleJobs.map((job) => (
                         <div
-                            key={job.id}
+                            key={job._id}
                             className={`glass-card p-8 flex flex-col hover:border-primary/50 transition-all duration-300 group relative overflow-hidden ${viewMode === 'list' ? 'md:flex-row md:items-center md:justify-between' : ''
                                 }`}
                         >

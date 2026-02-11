@@ -16,8 +16,8 @@ const ContentManagement = () => {
 
     const fetchContent = async () => {
         try {
-            const resT = await fetch('http://localhost:5000/api/cms/testimonials');
-            const resP = await fetch('http://localhost:5000/api/cms/partners');
+            const resT = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/testimonials`);
+            const resP = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/partners`);
             if (resT.ok) setTestimonials(await resT.json());
             if (resP.ok) setPartners(await resP.json());
         } catch (error) {
@@ -29,7 +29,7 @@ const ContentManagement = () => {
         const endpoint = activeTab === 'testimonials' ? 'testimonials' : 'partners';
         try {
             const token = localStorage.getItem('token');
-            const res = await fetch(`http://localhost:5000/api/cms/${endpoint}`, {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/${endpoint}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const ContentManagement = () => {
         if (!window.confirm('Are you sure?')) return;
         try {
             const token = localStorage.getItem('token');
-            await fetch(`http://localhost:5000/api/cms/${type}/${id}`, {
+            await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cms/${type}/${id}`, {
                 method: 'DELETE',
                 headers: { Authorization: `Bearer ${token}` }
             });

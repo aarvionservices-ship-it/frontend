@@ -17,12 +17,16 @@ export const getAnalyticsEstimate = async (
     end: Date
 ): Promise<number> => {
     try {
+        const token = localStorage.getItem('token');
         const response = await axios.get(`${API_URL}/analytics/query`, {
             params: {
                 metric,
                 dimension,
                 start: start.toISOString(),
                 end: end.toISOString()
+            },
+            headers: {
+                Authorization: `Bearer ${token}`
             }
         });
         return response.data.count;
@@ -34,10 +38,15 @@ export const getAnalyticsEstimate = async (
 
 export const ingestEvent = async (metric: string, dimension: string, value: string) => {
     try {
+        const token = localStorage.getItem('token');
         await axios.post(`${API_URL}/analytics/event`, {
             metric,
             dimension,
             value
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
         });
     } catch (error) {
         console.error("Failed to ingest event:", error);

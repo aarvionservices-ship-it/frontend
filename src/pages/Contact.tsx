@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import SEO from '../components/common/SEO';
 import { Phone, Mail, Clock, LocateIcon, ExternalLink, Facebook, Instagram, Youtube } from 'lucide-react';
 
@@ -17,11 +17,33 @@ interface ContactFormData {
 }
 
 const Contact: React.FC = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<ContactFormData>();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>();
+    const [isLoading, setIsLoading] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
-    const onSubmit: SubmitHandler<ContactFormData> = (data) => {
-        console.log(data);
-        // Handle form submission logic here
+    const onSubmit: SubmitHandler<ContactFormData> = async (data) => {
+        setIsLoading(true);
+        setSubmitStatus(null);
+
+        try {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contact`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send message');
+            }
+
+            setSubmitStatus({ type: 'success', message: 'Message sent successfully! We will get back to you soon.' });
+            reset();
+            setTimeout(() => setSubmitStatus(null), 5000);
+        } catch (error: any) {
+            setSubmitStatus({ type: 'error', message: error.message || 'Failed to send message. Please try again.' });
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -56,6 +78,13 @@ const Contact: React.FC = () => {
                         {/* Contact Form */}
                         <div className="bg-surface/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-lg h-full order-2 lg:order-1 flex flex-col justify-center">
                             <h2 className="text-3xl font-bold text-white mb-6">Send us a Message</h2>
+
+                            {submitStatus && (
+                                <div className={`mb-6 p-4 rounded-lg ${submitStatus.type === 'success' ? 'bg-green-500/10 border border-green-500 text-green-400' : 'bg-red-500/10 border border-red-500 text-red-400'}`}>
+                                    {submitStatus.message}
+                                </div>
+                            )}
+
                             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
@@ -127,8 +156,12 @@ const Contact: React.FC = () => {
                                     />
                                     {errors.message && <span className="text-red-500 text-xs mt-1">{errors.message.message}</span>}
                                 </div>
-                                <button type="submit" className="w-full btn-primary hover:scale-[1.02] active:scale-[0.98]">
-                                    Send Message
+                                <button
+                                    type="submit"
+                                    disabled={isLoading}
+                                    className="w-full btn-primary hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    {isLoading ? 'Sending...' : 'Send Message'}
                                 </button>
                             </form>
                         </div>

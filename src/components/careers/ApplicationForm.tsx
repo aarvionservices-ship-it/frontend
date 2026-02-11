@@ -17,26 +17,61 @@ const ApplicationForm: React.FC = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const onSubmit = async (data: FormData) => {
         setIsSubmitting(true);
         setSubmitStatus('idle');
-
-        const formData = new FormData();
-        formData.append('resume', data.resume[0]);
+        setErrorMessage('');
 
         try {
-            // 1. Upload Resume
-            const uploadRes = await fetch('http://localhost:5000/api/upload', {
-                method: 'POST',
-                body: formData
+            // Check if resume file exists
+            if (!data.resume || data.resume.length === 0) {
+                throw new Error('Please select a resume file');
+            }
+
+            const resumeFile = data.resume[0];
+
+            // Validate file type
+            const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            if (!allowedTypes.includes(resumeFile.type)) {
+                throw new Error('Only PDF and DOC/DOCX files are allowed');
+            }
+
+            // Validate file size (max 5MB)
+            const maxSize = 5 * 1024 * 1024;
+            if (resumeFile.size > maxSize) {
+                throw new Error('File size must be less than 5MB');
+            }
+
+            // Upload Resume as multipart form data
+            const uploadFormData = new FormData();
+            uploadFormData.append('resume', resumeFile);
+
+            // Debug: Log file info
+            console.log('Uploading file:', {
+                name: resumeFile.name,
+                size: resumeFile.size,
+                type: resumeFile.type,
+                fieldName: 'resume'
             });
 
-            if (!uploadRes.ok) throw new Error('Upload failed');
-            const uploadData = await uploadRes.json();
-            console.log('Resume uploaded:', uploadData.fileUrl);
+            const uploadRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/upload`, {
+                method: 'POST',
+                body: uploadFormData
+            });
 
-            const contactRes = await fetch('http://localhost:5000/api/contact', {
+            if (!uploadRes.ok) {
+                const errorData = await uploadRes.json().catch(() => ({}));
+                throw new Error(errorData.message || 'Resume upload failed');
+            }
+
+            const uploadData = await uploadRes.json();
+            const resumeUrl = uploadData.fileUrl || uploadData.url || '';
+
+
+            // Submit application
+            const contactRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -44,16 +79,20 @@ const ApplicationForm: React.FC = () => {
                     email: data.email,
                     phone: data.phone,
                     subject: `Job Application: ${data.position}`,
-                    message: `${data.message}\n\nResume Link: ${uploadData.fileUrl || 'Attached'}`
+                    message: `${data.message}\n\nVideo Resume: ${data.videoResumeLink || 'Not provided'}\nResume: ${resumeUrl}`
                 })
             });
 
-            if (!contactRes.ok) throw new Error('Application submission failed');
+            if (!contactRes.ok) {
+                const errorData = await contactRes.json().catch(() => ({}));
+                throw new Error(errorData.message || 'Application submission failed');
+            }
 
             setSubmitStatus('success');
             reset();
-        } catch (error) {
-            console.error(error);
+        } catch (error: any) {
+            console.error('Application error:', error);
+            setErrorMessage(error.message || 'An error occurred. Please try again.');
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
@@ -71,7 +110,7 @@ const ApplicationForm: React.FC = () => {
 
                 {submitStatus === 'error' && (
                     <div className="mb-6 p-4 bg-red-500/10 border border-red-500 rounded-lg flex items-center text-red-500">
-                        <AlertCircle className="mr-2" /> Something went wrong. Please try again.
+                        <AlertCircle className="mr-2" /> {errorMessage || 'Something went wrong. Please try again.'}
                     </div>
                 )}
 

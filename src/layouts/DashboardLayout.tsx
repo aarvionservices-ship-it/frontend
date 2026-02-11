@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet, Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import ThemeToggle from '../components/common/ThemeToggle';
 import {
     LayoutDashboard,
     Users,
@@ -90,10 +91,14 @@ const sidebarItems: SidebarItem[] = [
 ];
 
 const DashboardLayout: React.FC = () => {
-    const { user, logout } = useAuth();
+    const { user, logout, loading } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+    if (loading) {
+        return <div className="flex items-center justify-center h-screen">Loading...</div>;
+    }
 
     if (!user) {
         return <Navigate to="/login" state={{ from: location }} replace />;
@@ -123,18 +128,18 @@ const DashboardLayout: React.FC = () => {
             {/* Sidebar */}
             <aside
                 className={`
-                    flex-shrink-0 z-30 h-full w-64 bg-surface border-r border-white/10 transition-all duration-300 ease-in-out
+                    flex-shrink-0 z-30 h-full w-64 bg-surface border-r border-border transition-all duration-300 ease-in-out
                     ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0 md:w-20 lg:w-64'}
                     fixed md:relative
                 `}
             >
                 <div className="h-full flex flex-col">
                     {/* Logo Area */}
-                    <div className="h-16 flex items-center justify-between px-4 border-b border-white/10">
-                        <span className={`text-xl font-bold text-white whitespace-nowrap overflow-hidden ${!isSidebarOpen && 'md:hidden lg:block'}`}>
+                    <div className="h-16 flex items-center justify-between px-4 border-b border-border">
+                        <span className={`text-xl font-bold text-text whitespace-nowrap overflow-hidden ${!isSidebarOpen && 'md:hidden lg:block'}`}>
                             Aarvion Admin
                         </span>
-                        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="md:hidden text-white">
+                        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="md:hidden text-text">
                             <X size={24} />
                         </button>
                     </div>
@@ -147,10 +152,10 @@ const DashboardLayout: React.FC = () => {
                                 to={item.path}
                                 className={`
                                     flex items-center px-3 py-3 rounded-lg transition-colors group
-                                    ${location.pathname === item.path ? 'bg-primary/20 text-primary' : 'text-gray-400 hover:bg-white/5 hover:text-white'}
+                                    ${location.pathname === item.path ? 'bg-primary/20 text-primary' : 'text-text-muted hover:bg-surface/50 hover:text-text'}
                                 `}
                             >
-                                <span className={`${location.pathname === item.path ? 'text-primary' : 'text-gray-400 group-hover:text-white'}`}>
+                                <span className={`${location.pathname === item.path ? 'text-primary' : 'text-text-muted group-hover:text-text'}`}>
                                     {item.icon}
                                 </span>
                                 <span className={`ml-3 whitespace-nowrap overflow-hidden transition-all ${!isSidebarOpen && 'md:hidden lg:block'}`}>
@@ -161,19 +166,22 @@ const DashboardLayout: React.FC = () => {
                     </nav>
 
                     {/* User Profile / Logout */}
-                    <div className="p-4 border-t border-white/10">
+                    <div className="p-4 border-t border-border space-y-3">
                         <div className={`flex items-center ${!isSidebarOpen && 'md:justify-center lg:justify-start'}`}>
                             <div className={`w-8 h-8 rounded-full bg-primary flex items-center justify-center text-black font-bold mr-3 ${!isSidebarOpen && 'md:mr-0 lg:mr-3'}`}>
                                 {user?.name.charAt(0)}
                             </div>
                             <div className={`overflow-hidden transition-all ${!isSidebarOpen && 'md:hidden lg:block'}`}>
-                                <p className="text-sm font-medium text-white truncate">{user?.name}</p>
-                                <p className="text-xs text-gray-500 truncate capitalize">{user?.role}</p>
+                                <p className="text-sm font-medium text-text truncate">{user?.name}</p>
+                                <p className="text-xs text-text-muted truncate capitalize">{user?.role}</p>
                             </div>
+                        </div>
+                        <div className={`flex items-center justify-center ${!isSidebarOpen && 'md:justify-center'}`}>
+                            <ThemeToggle className="text-text-muted hover:text-text" />
                         </div>
                         <button
                             onClick={handleLogout}
-                            className={`mt-4 w-full flex items-center justify-center px-4 py-2 border border-white/10 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-red-400 transition-colors ${!isSidebarOpen && 'md:hidden lg:flex'}`}
+                            className={`w-full flex items-center justify-center px-4 py-2 border border-border rounded-lg text-sm text-text-muted hover:bg-surface/50 hover:text-red-400 transition-colors ${!isSidebarOpen && 'md:hidden lg:flex'}`}
                         >
                             <LogOut size={16} className="mr-2" />
                             Log Out
@@ -193,12 +201,12 @@ const DashboardLayout: React.FC = () => {
             {/* Main Content */}
             <div className="flex-1 flex flex-col h-full overflow-hidden relative">
                 {/* Mobile Header */}
-                <header className="md:hidden h-16 bg-surface border-b border-white/10 flex items-center px-4 justify-between">
-                    <button onClick={() => setIsSidebarOpen(true)} className="text-white">
+                <header className="md:hidden h-16 bg-surface border-b border-border flex items-center px-4 justify-between">
+                    <button onClick={() => setIsSidebarOpen(true)} className="text-text">
                         <Menu size={24} />
                     </button>
-                    <span className="text-lg font-bold text-white">Dashboard</span>
-                    <div className="w-8"></div> {/* Spacer */}
+                    <span className="text-lg font-bold text-text">Dashboard</span>
+                    <ThemeToggle className="text-text" />
                 </header>
 
                 <main className="flex-1 overflow-auto p-4 md:p-8">
