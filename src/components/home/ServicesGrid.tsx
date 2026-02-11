@@ -1,5 +1,5 @@
-import React, { Profiler } from 'react';
-import { Code, FileText, TrendingUp, Headphones, GraduationCap, PersonStanding, Users, Users2 } from 'lucide-react';
+import React from 'react';
+import { Code, FileText, TrendingUp, Headphones, Users2 } from 'lucide-react';
 import StaggerContainer, { StaggerItem } from '../common/animations/StaggerContainer';
 
 const services = [

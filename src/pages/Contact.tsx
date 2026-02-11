@@ -1,7 +1,7 @@
 
 import React from 'react';
 import SEO from '../components/common/SEO';
-import { MapPin, Phone, Mail, Clock, LocateIcon, ExternalLink, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Phone, Mail, Clock, LocateIcon, ExternalLink, Facebook, Instagram, Youtube } from 'lucide-react';
 
 
 import PageHero from '../components/common/PageHero';
