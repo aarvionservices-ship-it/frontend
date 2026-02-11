@@ -6,6 +6,13 @@ import { ArrowLeft, CheckCircle } from 'lucide-react';
 import CTA from '../components/home/CTA';
 
 const serviceData: Record<string, any> = {
+    'it-support-outsourcing': {
+        title: 'IT Support & Outsourcing',
+        description: 'Empower your business with top-tier IT support and outsourcing solutions. We manage your infrastructure and provide technical expertise for development and security.',
+        features: ['Managed IT Services', 'Technical Support', 'Helpdesk Outsourcing', 'Remote Infrastructure Management', 'Cybersecurity'],
+        benefits: ['Access to Global Talent', 'Technology Optimization', 'Secure Infrastructure'],
+        process: ['Requirement Analysis', 'Solution Design', 'Development/Deployment', 'Maintenance']
+    },
     'back-office-support': {
         title: 'Back Office Support',
         description: 'We provide comprehensive back-office support services to streamline your operations and improve efficiency. From data entry to document processing, we handle the details so you can focus on growth.',
@@ -27,20 +34,6 @@ const serviceData: Record<string, any> = {
         benefits: ['Improved Customer Loyalty', 'Scalable Support', 'Real-time Resolution'],
         process: ['Training & Onboarding', 'Integration', 'Live Support', 'Performance Monitoring']
     },
-    'admission-help-centre': {
-        title: 'Admission Help Centre',
-        description: 'We guide students and institutions through the complex admission process. Our end-to-end assistance ensures a smooth journey from application to enrollment.',
-        features: ['Application Processing', 'Student Counselling', 'University Coordination', 'Document Verification'],
-        benefits: ['Higher Enrollment Rates', 'Reduced Administrative Burden', 'Student Success'],
-        process: ['Consultation', 'Application Preparation', 'Submission', 'Follow-up']
-    },
-    'it-support-outsourcing': {
-        title: 'IT Support & Outsourcing',
-        description: 'Empower your business with top-tier IT support and outsourcing solutions. We manage your infrastructure and provide technical expertise for development and security.',
-        features: ['Managed IT Services', 'Technical Support', 'Helpdesk Outsourcing', 'Remote Infrastructure Management', 'Cybersecurity'],
-        benefits: ['Access to Global Talent', 'Technology Optimization', 'Secure Infrastructure'],
-        process: ['Requirement Analysis', 'Solution Design', 'Development/Deployment', 'Maintenance']
-    }
 };
 
 import PageHero from '../components/common/PageHero';

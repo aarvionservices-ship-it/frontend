@@ -27,8 +27,7 @@ const About: React.FC = () => {
                 <Introduction />
                 <MissionVision />
                 <CoreValues />
-                
-                <Testimonials />
+                {/* <Testimonials /> */}
                 <CTA />
             </main>
         </>

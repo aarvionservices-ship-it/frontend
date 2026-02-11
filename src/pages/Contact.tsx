@@ -1,12 +1,29 @@
 
 import React from 'react';
 import SEO from '../components/common/SEO';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, LocateIcon, ExternalLink, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 
 
 import PageHero from '../components/common/PageHero';
 
+import { useForm, type SubmitHandler } from 'react-hook-form';
+
+interface ContactFormData {
+    name: string;
+    email: string;
+    phone: string;
+    subject: string;
+    message: string;
+}
+
 const Contact: React.FC = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm<ContactFormData>();
+
+    const onSubmit: SubmitHandler<ContactFormData> = (data) => {
+        console.log(data);
+        // Handle form submission logic here
+    };
+
     return (
         <>
             <SEO
@@ -17,98 +34,197 @@ const Contact: React.FC = () => {
             <main>
                 {/* Hero */}
                 <PageHero
-                    title="Contact Us"
+                    title="Get in Touch"
                     description="Have a question or want to work together? We'd love to hear from you."
-                    image="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&q=80&w=1920"
+                    image="/office.png"
                 />
 
                 {/* Contact Info Cards */}
-                <section className="section-padding bg-background">
-                    <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                        {/* Registered Address */}
-                        <div className="bg-surface p-8 rounded-2xl border border-border hover:border-primary/30 transition-all">
-                            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                                <MapPin size={24} />
-                            </div>
-                            <h3 className="text-xl font-bold text-text mb-4">Registered Office</h3>
-                            <p className="text-text-muted leading-relaxed">
-                                Financial District, Hyderabad,<br />
-                                Telangana, India - 500008
-                            </p>
+                <section className="section-padding bg-background relative overflow-hidden">
+                    {/* Background Image with Dark Overlay */}
+                    <div className="absolute inset-0 z-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Background"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+                    </div>
+
+                    {/* Top Section: Form & Contact Info */}
+                    <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-stretch relative z-10">
+                        {/* Contact Form */}
+                        <div className="bg-surface/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-lg h-full order-2 lg:order-1 flex flex-col justify-center">
+                            <h2 className="text-3xl font-bold text-white mb-6">Send us a Message</h2>
+                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                                        <input
+                                            type="text"
+                                            {...register("name", { required: "Name is required" })}
+                                            className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all`}
+                                            placeholder="Your Name"
+                                        />
+                                        {errors.name && <span className="text-red-500 text-xs mt-1">{errors.name.message}</span>}
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                                        <input
+                                            type="email"
+                                            {...register("email", {
+                                                required: "Email is required",
+                                                pattern: {
+                                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                                    message: "Invalid email address"
+                                                }
+                                            })}
+                                            className={`w-full bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all`}
+                                            placeholder="your@email.com"
+                                        />
+                                        {errors.email && <span className="text-red-500 text-xs mt-1">{errors.email.message}</span>}
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
+                                        <input
+                                            type="tel"
+                                            {...register("phone", {
+                                                required: "Phone number is required",
+                                                pattern: {
+                                                    value: /^[0-9+-]+$/,
+                                                    message: "Invalid phone number"
+                                                },
+                                                minLength: {
+                                                    value: 10,
+                                                    message: "Phone number must be at least 10 digits"
+                                                }
+                                            })}
+                                            className={`w-full bg-white/5 border ${errors.phone ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all`}
+                                            placeholder="+91 98765 43210"
+                                        />
+                                        {errors.phone && <span className="text-red-500 text-xs mt-1">{errors.phone.message}</span>}
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                                        <input
+                                            type="text"
+                                            {...register("subject", { required: "Subject is required" })}
+                                            className={`w-full bg-white/5 border ${errors.subject ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all`}
+                                            placeholder="How can we help?"
+                                        />
+                                        {errors.subject && <span className="text-red-500 text-xs mt-1">{errors.subject.message}</span>}
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                                    <textarea
+                                        rows={4}
+                                        {...register("message", { required: "Message is required" })}
+                                        className={`w-full bg-white/5 border ${errors.message ? 'border-red-500' : 'border-white/10'} rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all`}
+                                        placeholder="Write your message here..."
+                                    />
+                                    {errors.message && <span className="text-red-500 text-xs mt-1">{errors.message.message}</span>}
+                                </div>
+                                <button type="submit" className="w-full btn-primary hover:scale-[1.02] active:scale-[0.98]">
+                                    Send Message
+                                </button>
+                            </form>
                         </div>
 
-                        {/* Service Address */}
-                        <div className="bg-surface p-8 rounded-2xl border border-border hover:border-primary/30 transition-all">
-                            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                                <MapPin size={24} />
-                            </div>
-                            <h3 className="text-xl font-bold text-text mb-4">Service Office</h3>
-                            <p className="text-text-muted leading-relaxed">
-                                Sheetal Nagar, Mainpuri,<br />
-                                Uttar Pradesh - 205001
+                        {/* Contact Details (Matched Height) */}
+                        <div className="bg-surface/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-lg h-full order-1 lg:order-2 flex flex-col justify-center">
+                            <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+                            <p className="text-gray-300 mb-8 text-lg">
+                                We're here to help and answer any question you might have. We look forward to hearing from you.
                             </p>
-                        </div>
 
-                        {/* Contact Details */}
-                        <div className="bg-surface p-8 rounded-2xl border border-border hover:border-primary/30 transition-all">
-                            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                                <Phone size={24} />
-                            </div>
-                            <h3 className="text-xl font-bold text-text mb-4">Contact Info</h3>
-                            <ul className="space-y-3">
-                                <li className="flex items-center text-text-muted">
-                                    <Phone size={18} className="mr-3 text-primary" /> +91-7060638863
+                            <ul className="space-y-6">
+                                <li className="flex items-start">
+                                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary mt-1 mr-4 shrink-0 border border-primary/30">
+                                        <Phone size={20} />
+                                    </div>
+                                    <div>
+                                        <span className="block text-sm font-medium text-gray-400 mb-1">Phone</span>
+                                        <span className="text-lg font-semibold text-white">+91-706063-8863</span>
+                                    </div>
                                 </li>
-                                <li className="flex items-center text-text-muted">
-                                    <Mail size={18} className="mr-3 text-primary" /> info@aarvionservices.com
+                                <li className="flex items-start">
+                                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary mt-1 mr-4 shrink-0 border border-primary/30">
+                                        <Mail size={20} />
+                                    </div>
+                                    <div>
+                                        <span className="block text-sm font-medium text-gray-400 mb-1">Email</span>
+                                        <span className="text-lg font-semibold text-white">info@aarvionservices.com</span>
+                                    </div>
                                 </li>
-                                <li className="flex items-center text-text-muted">
-                                    <Clock size={18} className="mr-3 text-primary" /> Mon - Fri, 9:00 AM - 6:00 PM
+                                <li className="flex items-start">
+                                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary mt-1 mr-4 shrink-0 border border-primary/30">
+                                        <Clock size={20} />
+                                    </div>
+                                    <div>
+                                        <span className="block text-sm font-medium text-gray-400 mb-1">Business Hours</span>
+                                        <span className="text-lg font-semibold text-white">Mon - Fri, 9:00 AM - 6:00 PM</span>
+                                    </div>
+                                </li>
+                                <li className="flex items-start">
+                                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary mt-1 mr-4 shrink-0 border border-primary/30">
+                                        <LocateIcon size={20} />
+                                    </div>
+                                    <div>
+                                        <span className="block text-sm font-medium text-gray-400 mb-1">Address</span>
+                                        <span className="text-lg font-semibold text-white">4th Floor, WorkFlo Hitex, Bizness Square, Hyderabad, Telangana - 500081</span>
+                                    </div>
+                                </li>
+
+                                {/* Social Media Links */}
+                                <li className="pt-4 border-t border-white/10 mt-4">
+                                    <span className="block text-sm font-medium text-gray-400 mb-4">Social Profiles</span>
+                                    <div className="flex gap-4">
+                                        <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-primary hover:border-primary hover:scale-110 transition-all duration-300 shadow-sm hover:shadow-md hover:bg-white/10">
+                                            <Facebook size={18} />
+                                        </a>
+                                        <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-pink-500 hover:border-pink-500 hover:scale-110 transition-all duration-300 shadow-sm hover:shadow-md hover:bg-white/10">
+                                            <Instagram size={18} />
+                                        </a>
+                                        <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-sky-500 hover:border-sky-500 hover:scale-110 transition-all duration-300 shadow-sm hover:shadow-md hover:bg-white/10">
+                                            {/* X (formerly Twitter) Logo */}
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-label="X (formerly Twitter)">
+                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                                            </svg>
+                                        </a>
+                                        <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-red-600 hover:border-red-600 hover:scale-110 transition-all duration-300 shadow-sm hover:shadow-md hover:bg-white/10">
+                                            <Youtube size={18} />
+                                        </a>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    {/* Form & Map Grid */}
-                    <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        {/* Contact Form */}
-                        <div className="bg-surface p-8 rounded-2xl border border-border">
-                            <h2 className="text-3xl font-bold text-text mb-6">Send us a Message</h2>
-                            <form className="space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label className="block text-sm font-medium text-text-muted mb-2">Name</label>
-                                        <input type="text" className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary" placeholder="Your Name" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-text-muted mb-2">Email</label>
-                                        <input type="email" className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary" placeholder="your@email.com" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-text-muted mb-2">Subject</label>
-                                    <input type="text" className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary" placeholder="How can we help?" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-text-muted mb-2">Message</label>
-                                    <textarea rows={4} className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:border-primary" placeholder="Write your message here..." />
-                                </div>
-                                <button type="submit" className="w-full btn-primary">Send Message</button>
-                            </form>
-                        </div>
-
-                        {/* Map (Placeholder) */}
-                        <div className="h-full min-h-[400px] bg-surface rounded-2xl overflow-hidden relative">
-                            {/* Create a darker map look using filtering if embedding real map, or just placeholder for now */}
+                    {/* Wide Map Section - Full Width & Connected to Footer */}
+                    <div className="w-full relative">
+                        <div className="h-[450px] w-full bg-surface relative border-t border-border/50">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.867272216444!2d78.3426!3d17.4183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9380625a690f%3A0x6296155989269785!2sFinancial%20District%2C%20Nanakramguda%2C%20Telangana!5e0!3m2!1sen!2sin!4v1645425678901!5m2!1sen!2sin"
+                                src="https://maps.google.com/maps?q=17.456881720529108,78.3760453846566&z=15&output=embed"
                                 width="100%"
                                 height="100%"
-                                style={{ border: 0, filter: 'grayscale(100%) invert(90%)' }}
+                                style={{ border: 0 }}
                                 allowFullScreen
                                 loading="lazy"
                                 title="Google Map"
                             ></iframe>
+
+                            {/* View on Maps Button */}
+                            <a
+                                href="https://maps.google.com/?q=17.456881720529108,78.3760453846566"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hidden md:flex absolute top-4 right-4 bg-white text-black text-xs font-semibold px-3 py-2 rounded-lg shadow-md hover:bg-gray-100 transition-colors items-center gap-2 z-10"
+                            >
+                                <ExternalLink size={14} /> View on Google Maps
+                            </a>
                         </div>
                     </div>
                 </section>

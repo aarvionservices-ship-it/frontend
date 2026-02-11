@@ -51,6 +51,10 @@ const JobDetail: React.FC = () => {
                                     <Clock size={18} className="mr-2 text-primary" />
                                     Posted recently
                                 </div>
+                                <div className="flex items-center">
+                                    <Briefcase size={18} className="mr-2 text-primary" />
+                                    {job.WorkMode}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -58,55 +62,50 @@ const JobDetail: React.FC = () => {
 
                 {/* Content */}
                 <section className="section-padding bg-background">
-                    <div className="container-custom grid grid-cols-1 lg:grid-cols-3 gap-12">
-                        {/* Job Info */}
-                        <div className="lg:col-span-2 space-y-10">
-                            <div>
-                                <h3 className="text-2xl font-bold text-text mb-4">About the Role</h3>
-                                <p className="text-text-muted leading-relaxed text-lg">
-                                    {job.description}
-                                </p>
-                            </div>
-
-                            <div>
-                                <h3 className="text-2xl font-bold text-text mb-4">Responsibilities</h3>
-                                <ul className="space-y-3">
-                                    {job.responsibilities.map((item, idx) => (
-                                        <li key={idx} className="flex items-start text-text-muted">
-                                            <CheckCircle size={20} className="text-primary mr-3 mt-1 flex-shrink-0" />
-                                            <span className="leading-relaxed">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h3 className="text-2xl font-bold text-text mb-4">Requirements</h3>
-                                <ul className="space-y-3">
-                                    {job.requirements.map((item, idx) => (
-                                        <li key={idx} className="flex items-start text-text-muted">
-                                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
-                                            <span className="leading-relaxed">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                    <div className="container-custom max-w-4xl mx-auto space-y-10">
+                        <div>
+                            <h3 className="text-2xl font-bold text-text mb-4">About the Role</h3>
+                            <p className="text-text-muted leading-relaxed text-lg">
+                                {job.description}
+                            </p>
                         </div>
 
-                        {/* Sidebar / Apply Form */}
-                        <div className="lg:col-span-1">
-                            <div className="bg-surface rounded-2xl p-6 border border-border sticky top-24">
-                                <h3 className="text-xl font-bold text-text mb-2">Apply for this position</h3>
-                                <p className="text-text-muted text-sm mb-6">Complete the form below to submit your application.</p>
-                                {/* We can pass the job title as a prop if we update ApplicationForm in the future. 
-                                    For now users can select it from dropdown or we rely on 'Subject' line if we tweak it. 
-                                    Ideally, we pass a prop `defaultPosition={job.title}`. 
-                                    Let's verify ApplicationForm props or assume standard usage for now. */}
-                                <ApplicationForm />
-                            </div>
+                        <div>
+                            <h3 className="text-2xl font-bold text-text mb-4">Responsibilities</h3>
+                            <ul className="space-y-3">
+                                {job.responsibilities.map((item, idx) => (
+                                    <li key={idx} className="flex items-start text-text-muted">
+                                        <CheckCircle size={20} className="text-primary mr-3 mt-1 flex-shrink-0" />
+                                        <span className="leading-relaxed">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 className="text-2xl font-bold text-text mb-4">Requirements</h3>
+                            <ul className="space-y-3">
+                                {job.requirements.map((item, idx) => (
+                                    <li key={idx} className="flex items-start text-text-muted">
+                                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
+                                        <span className="leading-relaxed">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </section>
+
+                <div className="bg-surface/30 border-t border-border/50">
+                    <div className="container-custom py-12 text-center">
+                        <h2 className="text-3xl font-bold text-text mb-4">Ready to apply?</h2>
+                        <p className="text-text-muted max-w-2xl mx-auto mb-8">
+                            Fill out the form below to submit your application for the {job.title} position.
+                        </p>
+                    </div>
+                </div>
+
+                <ApplicationForm />
             </main>
         </>
     );

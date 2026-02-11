@@ -15,11 +15,22 @@ const Footer: React.FC = () => {
                 <StaggerContainer className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16 relative z-10" staggerDelay={0.1}>
                     {/* Brand */}
                     <StaggerItem className="lg:col-span-1">
-                        <Link to="/" className="text-2xl font-bold tracking-tighter text-text mb-6 block">
-                            <img src="/logo2.png" alt="Aarvion Services" className="h-12 w-auto object-contain" />
+                        <Link to="/" className="text-2xl font-bold tracking-tighter text-text mb-6 block relative h-12 w-auto">
+                            {/* White Logo for Dark Mode */}
+                            <img
+                                src="/logo2.png"
+                                alt="Aarvion Services"
+                                className="h-12 w-auto object-contain hidden dark:block"
+                            />
+                            {/* Dark Logo for Light Mode */}
+                            <img
+                                src="/logo.png"
+                                alt="Aarvion Services"
+                                className="h-12 w-auto object-contain block dark:hidden"
+                            />
                         </Link>
                         <p className="text-text-muted mb-6 text-sm leading-relaxed">
-                            A diversified service-based company delivering modern, reliable and efficient solutions across multiple domains. Specializing in back-office, financial services, IT support, and more.
+                            We are a service-driven company delivering reliable, efficient solutions across technology and business operations. Our expertise spans IT support, back-office management, financial services, and other essential business functions.
                         </p>
                         <div className="flex space-x-4">
                             <ScaleHover>
@@ -79,11 +90,11 @@ const Footer: React.FC = () => {
                         </h3>
                         <ul className="space-y-3">
                             {[
+                                'IT Support & Outsourcing',
                                 'Back Office Support',
                                 'Financial Services',
                                 'Customer Support',
                                 'Admission Help Centre',
-                                'IT Support & Outsourcing'
                             ].map((item) => (
                                 <li key={item}>
                                     <Link to="/services" className="text-text-muted hover:text-primary transition-colors flex items-center group">
@@ -123,7 +134,8 @@ const Footer: React.FC = () => {
                         <ul className="space-y-3">
                             <li className="flex items-start space-x-3 text-text-muted hover:text-text transition-colors">
                                 <MapPin size={18} className="text-primary mt-1 flex-shrink-0" />
-                                <span className="text-sm">Financial District, Hyderabad,<br />Telangana, India - 500008</span>
+                                <span className="text-sm">4th Floor, WorkFlo Hitex, Bizness Square,<br />
+                                    Hyderabad, Telangana - 500081</span>
                             </li>
                             <li className="flex items-center space-x-3 text-text-muted hover:text-text transition-colors">
                                 <Phone size={18} className="text-primary flex-shrink-0" />
@@ -142,19 +154,6 @@ const Footer: React.FC = () => {
             <div className="container-custom pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-sm text-text-muted">
                 <div className="mb-4 md:mb-0">
                     <p>&copy; {new Date().getFullYear()} Aarvion Services India Pvt. Ltd. All rights reserved.</p>
-                </div>
-                <div>
-                    <p className="flex items-center gap-1">
-                        Developed by
-                        <a
-                            href="https://semixon.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary hover:text-text transition-colors font-medium"
-                        >
-                            Semixon Technologies
-                        </a>
-                    </p>
                 </div>
             </div>
         </footer>

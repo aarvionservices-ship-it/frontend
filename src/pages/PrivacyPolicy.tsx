@@ -1,86 +1,188 @@
-
 import React from 'react';
 import SEO from '../components/common/SEO';
 import { Shield, Lock, Eye } from 'lucide-react';
-
 import PageHero from '../components/common/PageHero';
 
 const PrivacyPolicy: React.FC = () => {
     return (
         <>
             <SEO
-                title="Privacy Policy"
-                description="Privacy Policy for Aarvion Services. Learn how we collect, use, and protect your data."
+                title="Privacy Policy | Aarvion Services Pvt. Ltd."
+                description="Privacy Policy of Aarvion Services Pvt. Ltd. in accordance with the Digital Personal Data Protection Act, 2023."
             />
 
             <main>
                 <PageHero
                     title="Privacy Policy"
-                    description="We are committed to protecting your personal information and your right to privacy."
+                    description="Aarvion Services Pvt. Ltd. • Effective Date: 1 Feb 2026"
                     image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1920"
                 />
 
                 <section className="section-padding bg-background">
                     <div className="container-custom max-w-4xl">
-                        <div className="prose prose-invert prose-lg max-w-none text-text-muted space-y-8">
-                            <div>
-                                <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
-                                    <Shield className="text-primary mr-3" size={24} /> 1. Introduction
-                                </h3>
-                                <p>
-                                    Welcome to Aarvion Services India Pvt. Ltd. ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.
-                                </p>
-                            </div>
+                        <div className="prose prose-invert prose-lg max-w-none text-text-muted space-y-10">
 
+                            <p>
+                                <strong>Aarvion Services Pvt. Ltd.</strong> (“We”, “Us”, “Our”, or “Aarvion”)
+                                is committed to protecting your privacy and personal data in accordance
+                                with the Digital Personal Data Protection Act, 2023 (DPDP Act).
+                                This Privacy Policy explains how we collect, use, disclose, store,
+                                and safeguard personal data when you access or use our websites,
+                                products, applications, and services.
+                            </p>
+
+                            {/* 1 */}
                             <div>
                                 <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
-                                    <Eye className="text-primary mr-3" size={24} /> 2. Information We Collect
+                                    <Eye className="text-primary mr-3" size={24} />
+                                    1. Information We Collect
                                 </h3>
-                                <p>
-                                    We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:
-                                </p>
-                                <ul className="list-disc pl-6 space-y-2 mt-4 marker:text-primary">
-                                    <li><strong>Identity Data:</strong> includes first name, last name, username or similar identifier.</li>
-                                    <li><strong>Contact Data:</strong> includes billing address, delivery address, email address and telephone numbers.</li>
-                                    <li><strong>Technical Data:</strong> includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform and other technology on the devices you use to access this website.</li>
-                                    <li><strong>Usage Data:</strong> includes information about how you use our website, products and services.</li>
+                                <ul className="list-disc pl-6 space-y-2 marker:text-primary">
+                                    <li>Basic personal details such as name, email address, phone number, and postal address</li>
+                                    <li>Professional or organizational information</li>
+                                    <li>Device, browser, IP address, and usage-related information</li>
+                                    <li>Information voluntarily provided through forms, communications, or service usage</li>
                                 </ul>
                             </div>
 
+                            {/* 2 */}
                             <div>
                                 <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
-                                    <Lock className="text-primary mr-3" size={24} /> 3. How We Use Your Data
+                                    <Lock className="text-primary mr-3" size={24} />
+                                    2. How We Use Personal Data
                                 </h3>
-                                <p>
-                                    We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
-                                </p>
-                                <ul className="list-disc pl-6 space-y-2 mt-4 marker:text-primary">
-                                    <li>Where we need to perform the contract we are about to enter into or have entered into with you.</li>
-                                    <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
-                                    <li>Where we need to comply with a legal or regulatory obligation.</li>
+                                <ul className="list-disc pl-6 space-y-2 marker:text-primary">
+                                    <li>Providing, operating, and managing our products and services</li>
+                                    <li>Creating and administering user accounts</li>
+                                    <li>Responding to inquiries and providing customer support</li>
+                                    <li>Improving our services, systems, and user experience</li>
+                                    <li>Complying with legal, regulatory, and contractual obligations</li>
+                                    <li>Protecting our rights, property, and preventing fraud or misuse</li>
                                 </ul>
                             </div>
 
+                            {/* 3 */}
                             <div>
-                                <h3 className="text-2xl font-bold text-text mb-4">4. Data Security</h3>
+                                <h3 className="text-2xl font-bold text-text mb-4 flex items-center">
+                                    <Shield className="text-primary mr-3" size={24} />
+                                    3. Consent
+                                </h3>
                                 <p>
-                                    We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
+                                    Where required under applicable law, we process personal data
+                                    based on free, specific, informed, unconditional, and unambiguous
+                                    consent. You may withdraw your consent at any time. Withdrawal
+                                    shall not affect the legality of processing carried out prior
+                                    to such withdrawal.
                                 </p>
                             </div>
 
+                            {/* 4 */}
                             <div>
-                                <h3 className="text-2xl font-bold text-text mb-4">5. Your Legal Rights</h3>
+                                <h3 className="text-2xl font-bold text-text mb-4">
+                                    4. Data Sharing
+                                </h3>
                                 <p>
-                                    Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to request access, correction, erasure, restriction, transfer, to object to processing, to portability of data and (where the lawful ground of processing is consent) to withdraw consent.
+                                    Personal data may be shared internally on a strict need-to-know
+                                    basis. We may also disclose personal data to government authorities,
+                                    regulators, or law enforcement agencies where required under
+                                    applicable Indian law.
                                 </p>
                             </div>
 
+                            {/* 5 */}
                             <div>
-                                <h3 className="text-2xl font-bold text-text mb-4">6. Contact Us</h3>
+                                <h3 className="text-2xl font-bold text-text mb-4">
+                                    5. Data Security and Retention
+                                </h3>
                                 <p>
-                                    If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:info@aarvionservices.com" className="text-primary hover:underline">info@aarvionservices.com</a>
+                                    We maintain reasonable administrative, technical, and organizational
+                                    safeguards to protect personal data against unauthorized access,
+                                    disclosure, alteration, or loss. Personal data is retained only
+                                    for as long as necessary to fulfill the purpose for which it was
+                                    collected or as required under applicable law.
                                 </p>
                             </div>
+
+                            {/* 6 */}
+                            <div>
+                                <h3 className="text-2xl font-bold text-text mb-4">
+                                    6. Rights of Data Principals (India)
+                                </h3>
+                                <ul className="list-disc pl-6 space-y-2 marker:text-primary">
+                                    <li>Access information about your personal data processed by us</li>
+                                    <li>Request correction of inaccurate or misleading personal data</li>
+                                    <li>Request erasure of personal data, subject to legal obligations</li>
+                                    <li>Withdraw consent</li>
+                                    <li>Nominate another individual to exercise rights in the event of death or incapacity</li>
+                                    <li>Seek grievance redressal</li>
+                                </ul>
+                            </div>
+
+                            {/* 7 */}
+                            <div>
+                                <h3 className="text-2xl font-bold text-text mb-4">
+                                    7. Grievance Redressal
+                                </h3>
+                                <p>
+                                    If you have any questions, concerns, or grievances regarding this
+                                    Privacy Policy or the processing of personal data, please contact
+                                    our Grievance Redressal Officer at:
+                                </p>
+                                <p>
+                                    <strong>Email:</strong>{' '}
+                                    <a
+                                        href="mailto:support@arvionservices.com"
+                                        className="text-primary hover:underline"
+                                    >
+                                        support@arvionservices.com
+                                    </a>
+                                </p>
+                            </div>
+
+                            {/* 8 */}
+                            <div>
+                                <h3 className="text-2xl font-bold text-text mb-4">
+                                    8. Governing Law and Jurisdiction
+                                </h3>
+                                <p>
+                                    This Privacy Policy shall be governed by and construed in
+                                    accordance with the laws of India. Any disputes arising out of
+                                    or in connection with this Privacy Policy shall be subject to
+                                    the exclusive jurisdiction of the competent courts at Hyderabad,
+                                    Telangana.
+                                </p>
+                            </div>
+
+                            {/* 9 */}
+                            <div>
+                                <h3 className="text-2xl font-bold text-text mb-4">
+                                    9. Rights of Data Principals (India)
+                                </h3>
+                                <p>
+                                    In accordance with the Digital Personal Data Protection Act, 2023
+                                    (“DPDP Act”), individuals whose personal data is processed
+                                    (“Data Principals”) have the following rights:
+                                </p>
+                                <ul className="list-disc pl-6 space-y-2 marker:text-primary">
+                                    <li><strong>Right to Access Information</strong></li>
+                                    <li><strong>Right to Correction and Erasure</strong></li>
+                                    <li><strong>Right to Withdraw Consent</strong></li>
+                                    <li><strong>Right to Grievance Redressal</strong></li>
+                                    <li><strong>Right to Nominate</strong></li>
+                                </ul>
+                                <p className="mt-4">
+                                    To exercise these rights, contact us at{' '}
+                                    <a
+                                        href="mailto:support@arvionservices.com"
+                                        className="text-primary hover:underline"
+                                    >
+                                        support@arvionservices.com
+                                    </a>.
+                                </p>
+                            </div>
+
+                            <hr />
+
                         </div>
                     </div>
                 </section>
